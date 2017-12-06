@@ -1,0 +1,235 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3195197cbbcf3421d80ba4d0d5696ad2, type: 3}
+  m_Name: AkWwiseProjectData
+  m_EditorClassIdentifier: 
+  CurrentPluginConfig: 
+  EventWwu:
+  - PhysicalPath: Events/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{01CDA8BC-683A-4288-9AA3-966B9C775560}'
+    m_lastTimePsrt1: 1714260224
+    m_lastTimePart2: -1999298892
+    List:
+    - Name: Background
+      Path: Default Work Unit/Background
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Background
+        ObjectType: 3
+      ID: -644243327
+      Guid: 37f413d129e36345ab770be4df8b91c1
+      maxAttenuation: 0
+    - Name: Collect
+      Path: Default Work Unit/Collect
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Collect
+        ObjectType: 3
+      ID: -1538633591
+      Guid: 68852b43e2175340a5e6e89b6a243f9d
+      maxAttenuation: 0
+    - Name: Current
+      Path: Default Work Unit/Current
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Current
+        ObjectType: 3
+      ID: 2037989808
+      Guid: 74f043356abb9349b79ae13beb89008f
+      maxAttenuation: 10
+    - Name: Die
+      Path: Default Work Unit/Die
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Die
+        ObjectType: 3
+      ID: 445985469
+      Guid: 014ecec09ecc044784df483d629c4153
+      maxAttenuation: 0
+    - Name: EndLevel
+      Path: Default Work Unit/EndLevel
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: EndLevel
+        ObjectType: 3
+      ID: 1054659462
+      Guid: 24b4d4cb7a7e9447a2cbdbac3eda4de5
+      maxAttenuation: 0
+    - Name: Jump
+      Path: Default Work Unit/Jump
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Jump
+        ObjectType: 3
+      ID: -461315959
+      Guid: 8a2946e001979d47aa4d223a4e770f74
+      maxAttenuation: 0
+    - Name: Transition
+      Path: Default Work Unit/Transition
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Transition
+        ObjectType: 3
+      ID: 1865857008
+      Guid: e7ffbc9c2304804eb660752c5efb98a4
+      maxAttenuation: 0
+  AuxBusWwu:
+  - PhysicalPath: Master-Mixer Hierarchy/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{E8BFF538-8809-493D-BC5C-CE75014682BB}'
+    m_lastTimePsrt1: 1771531136
+    m_lastTimePart2: -1999306314
+    List: []
+  StateWwu:
+  - PhysicalPath: States/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{FC8FF586-0497-4AE5-B3C6-EA7788C13D41}'
+    m_lastTimePsrt1: 1771531136
+    m_lastTimePart2: -1999306314
+    List:
+    - Name: New_State_Group
+      Path: Default Work Unit/New_State_Group
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: New_State_Group
+        ObjectType: 9
+      ID: 2012657067
+      Guid: 4acc9f6b9c12bc40bd4c282eb7ce0a57
+      values:
+      - None
+      ValueIcons:
+      - ElementName: None
+        ObjectType: 8
+      valueIDs: db3ba32c
+      ValueGuids:
+      - bytes: 7e81d8633c3f5c469456aad9708a1967
+  SwitchWwu:
+  - PhysicalPath: Switches/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{695B9CF0-78A2-44F1-A006-A73F1CC55A79}'
+    m_lastTimePsrt1: 1771531136
+    m_lastTimePart2: -1999306314
+    List: []
+  BankWwu:
+  - PhysicalPath: SoundBanks/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{CCB9A063-7B9E-4F52-8BFF-4C57C0EF60C4}'
+    m_lastTimePsrt1: 1250493440
+    m_lastTimePart2: -1999303288
+    List:
+    - Name: Background
+      Path: Default Work Unit/Background
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Background
+        ObjectType: 7
+      ID: -644243327
+      Guid: 315f3e33cac86a4f90a50fa8f20adad4
+    - Name: Collect
+      Path: Default Work Unit/Collect
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Collect
+        ObjectType: 7
+      ID: -1538633591
+      Guid: 5526d29eeff8d94a92cf1029fc3259ce
+    - Name: Current
+      Path: Default Work Unit/Current
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Current
+        ObjectType: 7
+      ID: 2037989808
+      Guid: fedaa994de0807419ffd1b73f5a9cbc1
+    - Name: Die
+      Path: Default Work Unit/Die
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Die
+        ObjectType: 7
+      ID: 445985469
+      Guid: ceeaaeb22ac082429c36a849161ba8db
+    - Name: EndLevel
+      Path: Default Work Unit/EndLevel
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: EndLevel
+        ObjectType: 7
+      ID: 1054659462
+      Guid: f661ac78f07a2b4d96dca646d171f5ee
+    - Name: Jump
+      Path: Default Work Unit/Jump
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Jump
+        ObjectType: 7
+      ID: -461315959
+      Guid: 8bb81f20697d3c42b1d2a1b5b5c40210
+    - Name: Transition
+      Path: Default Work Unit/Transition
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Transition
+        ObjectType: 7
+      ID: 1865857008
+      Guid: da36ee020cc0ff42b78a4490a33e052d
+  RtpcWwu:
+  - PhysicalPath: Game Parameters/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{1708337D-CC8F-43F0-89D4-6CCD0832E3A7}'
+    m_lastTimePsrt1: 1771531136
+    m_lastTimePart2: -1999306314
+    List:
+    - Name: Pitch
+      Path: Default Work Unit/Pitch
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Pitch
+        ObjectType: 13
+      ID: 1908158473
+      Guid: b9aba4d5cb20bd4ca9614189e918b29d
+  TriggerWwu:
+  - PhysicalPath: Triggers/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{1C45F006-F0C7-4C30-8A7E-EDF43C757F0F}'
+    m_lastTimePsrt1: 1771531136
+    m_lastTimePart2: -1999306314
+    List: []
+  ExpandedItems:
+  - /LineAudio
+  m_lastPopulateTimePsrt1: 0
+  m_lastPopulateTimePart2: 0
+  autoPopulateEnabled: 1
+  basePath: Audio/GeneratedSoundBanks
+  language: English(US)
+  defaultPoolSize: 4096
+  lowerPoolSize: 2048
+  streamingPoolSize: 1024
+  preparePoolSize: 0
+  memoryCutoffThreshold: 0.95
+  callbackManagerBufferSize: 4

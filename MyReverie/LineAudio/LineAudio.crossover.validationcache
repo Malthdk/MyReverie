@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationCache Version="1" SchemaVersion="80">
+	<ValidationCacheItem File="Y:\Documents\LineMan\LineAudio\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="2286036096" DateHigh="30625949"/>
+	<ValidationCacheItem File="Y:\Documents\LineMan\LineAudio\Attenuations\Default Work Unit.wwu" DateLow="1193307008" DateHigh="30618527"/>
+	<ValidationCacheItem File="Y:\Documents\LineMan\LineAudio\Audio Devices\Default Work Unit.wwu" DateLow="1193307008" DateHigh="30618527"/>
+	<ValidationCacheItem File="Y:\Documents\LineMan\LineAudio\Control Surface Sessions\Default Work Unit.wwu" DateLow="1193307008" DateHigh="30618527"/>
+	<ValidationCacheItem File="Y:\Documents\LineMan\LineAudio\Conversion Settings\Default Work Unit.wwu" DateLow="1193307008" DateHigh="30618527"/>
+	<ValidationCacheItem File="Y:\Documents\LineMan\LineAudio\Conversion Settings\Factory Conversion Settings.wwu" DateLow="1193307008" DateHigh="30618527"/>
+	<ValidationCacheItem File="Y:\Documents\LineMan\LineAudio\Dynamic Dialogue\Default Work Unit.wwu" DateLow="1193307008" DateHigh="30618527"/>
+	<ValidationCacheItem File="Y:\Documents\LineMan\LineAudio\Effects\Default Work Unit.wwu" DateLow="1193307008" DateHigh="30618527"/>
+	<ValidationCacheItem File="Y:\Documents\LineMan\LineAudio\Effects\Factory Effects.wwu" DateLow="1193307008" DateHigh="30618527"/>
+	<ValidationCacheItem File="Y:\Documents\LineMan\LineAudio\Events\Default Work Unit.wwu" DateLow="1136036096" DateHigh="30625949"/>
+	<ValidationCacheItem File="Y:\Documents\LineMan\LineAudio\Game Parameters\Default Work Unit.wwu" DateLow="1193307008" DateHigh="30618527"/>
+	<ValidationCacheItem File="Y:\Documents\LineMan\LineAudio\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1193307008" DateHigh="30618527"/>
+	<ValidationCacheItem File="Y:\Documents\LineMan\LineAudio\LineAudio.crossover.wsettings" DateLow="1581192192" DateHigh="30625648"/>
+	<ValidationCacheItem File="Y:\Documents\LineMan\LineAudio\LineAudio.wproj" DateLow="1815440000" DateHigh="30625625"/>
+	<ValidationCacheItem File="Y:\Documents\LineMan\LineAudio\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1193307008" DateHigh="30618527"/>
+	<ValidationCacheItem File="Y:\Documents\LineMan\LineAudio\Mixing Sessions\Default Work Unit.wwu" DateLow="1193307008" DateHigh="30618527"/>
+	<ValidationCacheItem File="Y:\Documents\LineMan\LineAudio\Modulators\Default Work Unit.wwu" DateLow="1193307008" DateHigh="30618527"/>
+	<ValidationCacheItem File="Y:\Documents\LineMan\LineAudio\Presets\Default Work Unit.wwu" DateLow="1193307008" DateHigh="30618527"/>
+	<ValidationCacheItem File="Y:\Documents\LineMan\LineAudio\Queries\Default Work Unit.wwu" DateLow="1193307008" DateHigh="30618527"/>
+	<ValidationCacheItem File="Y:\Documents\LineMan\LineAudio\Queries\Factory Queries.wwu" DateLow="1193307008" DateHigh="30618527"/>
+	<ValidationCacheItem File="Y:\Documents\LineMan\LineAudio\SoundBanks\Default Work Unit.wwu" DateLow="1193307008" DateHigh="30618527"/>
+	<ValidationCacheItem File="Y:\Documents\LineMan\LineAudio\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1193307008" DateHigh="30618527"/>
+	<ValidationCacheItem File="Y:\Documents\LineMan\LineAudio\States\Default Work Unit.wwu" DateLow="1193307008" DateHigh="30618527"/>
+	<ValidationCacheItem File="Y:\Documents\LineMan\LineAudio\Switches\Default Work Unit.wwu" DateLow="1193307008" DateHigh="30618527"/>
+	<ValidationCacheItem File="Y:\Documents\LineMan\LineAudio\Triggers\Default Work Unit.wwu" DateLow="1193307008" DateHigh="30618527"/>
+	<ValidationCacheItem File="Y:\Documents\LineMan\LineAudio\Virtual Acoustics\Default Work Unit.wwu" DateLow="1193307008" DateHigh="30618527"/>
+</ValidationCache>

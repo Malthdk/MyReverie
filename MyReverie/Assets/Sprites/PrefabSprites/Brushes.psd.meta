@@ -1,0 +1,576 @@
+fileFormatVersion: 2
+guid: fe05d533b7e5e4fecb52b39476ffba7e
+timeCreated: 1505596077
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Brushes_0
+    21300002: Brushes_1
+    21300004: Brushes_2
+    21300006: Brushes_3
+    21300008: Brushes_4
+    21300010: Brushes_5
+    21300012: Brushes_6
+    21300014: Brushes_7
+    21300016: Brushes_8
+    21300018: Brushes_9
+    21300020: Brushes_10
+    21300022: Brushes_11
+    21300024: Brushes_12
+    21300026: Brushes_13
+    21300028: Brushes_14
+    21300030: Brushes_15
+    21300032: Brushes_16
+    21300034: Brushes_17
+    21300036: Brushes_18
+    21300038: Brushes_19
+    21300040: Brushes_20
+    21300042: Brushes_21
+    21300044: Brushes_22
+    21300046: Brushes_23
+    21300048: Brushes_24
+    21300050: Brushes_25
+    21300052: Brushes_26
+    21300054: Brushes_27
+    21300056: Brushes_28
+    21300058: Brushes_29
+    21300060: Brushes_30
+    21300062: Brushes_31
+    21300064: Brushes_32
+    21300066: Brushes_33
+    21300068: Brushes_34
+    21300070: Brushes_35
+    21300072: Brushes_36
+    21300074: Brushes_37
+    21300076: Brushes_38
+    21300078: Brushes_39
+    21300080: Brushes_40
+    21300082: Brushes_41
+    21300084: Brushes_42
+    21300086: Brushes_43
+    21300088: Brushes_44
+    21300090: Brushes_45
+    21300092: Brushes_46
+    21300094: Brushes_47
+    21300096: Brushes_48
+    21300098: Brushes_49
+    21300100: Brushes_50
+    21300102: Brushes_51
+    21300104: Brushes_52
+    21300106: Brushes_53
+    21300108: Brushes_54
+    21300110: Brushes_55
+    21300112: Brushes_56
+    21300114: Brushes_57
+    21300116: Brushes_58
+    21300118: Brushes_59
+    21300120: Brushes_60
+    21300122: Brushes_61
+    21300124: Brushes_62
+    21300126: Brushes_63
+    21300128: Brushes_64
+    21300130: Brushes_65
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Brushes_0
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 641
+        width: 523
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_1
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 639
+        width: 522
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_2
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 536
+        width: 523
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_3
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 534
+        width: 522
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_4
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 435
+        width: 523
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_5
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 428
+        width: 522
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_6
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 329
+        width: 523
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_7
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 317
+        width: 522
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_8
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 236
+        width: 523
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_9
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 208
+        width: 522
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_12
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 117
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_13
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 117
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_14
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 117
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_15
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 119
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_16
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 118
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_17
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 119
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_18
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 120
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_19
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 118
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_33
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 119
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_36
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 116
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_37
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 97
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_38
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 95
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_39
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 95
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_40
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 96
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_41
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 98
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_42
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 97
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_43
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 99
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_44
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 98
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_45
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 95
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Brushes_59
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 86
+        width: 23
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

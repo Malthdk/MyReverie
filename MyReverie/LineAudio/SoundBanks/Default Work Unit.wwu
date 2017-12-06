@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{CCB9A063-7B9E-4F52-8BFF-4C57C0EF60C4}" SchemaVersion="80">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{CCB9A063-7B9E-4F52-8BFF-4C57C0EF60C4}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="Transition" ID="{02EE36DA-C00C-42FF-B78A-4490A33E052D}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Transition" ID="{9CBCFFE7-0423-4E80-B660-752C5EFB98A4}" WorkUnitID="{01CDA8BC-683A-4288-9AA3-966B9C775560}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Background" ID="{333E5F31-C8CA-4F6A-90A5-0FA8F20ADAD4}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Background" ID="{D113F437-E329-4563-AB77-0BE4DF8B91C1}" WorkUnitID="{01CDA8BC-683A-4288-9AA3-966B9C775560}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Die" ID="{B2AEEACE-C02A-4282-9C36-A849161BA8DB}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Die" ID="{C0CE4E01-CC9E-4704-84DF-483D629C4153}" WorkUnitID="{01CDA8BC-683A-4288-9AA3-966B9C775560}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Jump" ID="{201FB88B-7D69-423C-B1D2-A1B5B5C40210}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Jump" ID="{E046298A-9701-479D-AA4D-223A4E770F74}" WorkUnitID="{01CDA8BC-683A-4288-9AA3-966B9C775560}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Current" ID="{94A9DAFE-08DE-4107-9FFD-1B73F5A9CBC1}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Current" ID="{3543F074-BB6A-4993-B79A-E13BEB89008F}" WorkUnitID="{01CDA8BC-683A-4288-9AA3-966B9C775560}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="Collect" ID="{9ED22655-F8EF-4AD9-92CF-1029FC3259CE}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Collect" ID="{432B8568-17E2-4053-A5E6-E89B6A243F9D}" WorkUnitID="{01CDA8BC-683A-4288-9AA3-966B9C775560}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="EndLevel" ID="{78AC61F6-7AF0-4D2B-96DC-A646D171F5EE}">
+					<ObjectInclusionList>
+						<ObjectRef Name="EndLevel" ID="{CBD4B424-7E7A-4794-A2CB-DBAC3EDA4DE5}" WorkUnitID="{01CDA8BC-683A-4288-9AA3-966B9C775560}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>

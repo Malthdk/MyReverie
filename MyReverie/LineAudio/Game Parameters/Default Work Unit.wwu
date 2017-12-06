@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{1708337D-CC8F-43F0-89D4-6CCD0832E3A7}" SchemaVersion="80">
+	<GameParameters>
+		<WorkUnit Name="Default Work Unit" ID="{1708337D-CC8F-43F0-89D4-6CCD0832E3A7}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="Pitch" ID="{D5A4ABB9-20CB-4CBD-A961-4189E918B29D}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+						<Property Name="Max" Type="Real64" Value="15"/>
+						<Property Name="Min" Type="Real64" Value="-15"/>
+						<Property Name="RTPCRamping" Type="int16" Value="1"/>
+						<Property Name="SlewRateUp" Type="Real64" Value="25"/>
+					</PropertyList>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
+	</GameParameters>
+</WwiseDocument>

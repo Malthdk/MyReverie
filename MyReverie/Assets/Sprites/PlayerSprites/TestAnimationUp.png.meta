@@ -1,0 +1,644 @@
+fileFormatVersion: 2
+guid: d84b8b3f25dbe4711b27a0781be1c20a
+timeCreated: 1504780697
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: TestAnimation_0
+    21300002: TestAnimation_1
+    21300004: TestAnimation_2
+    21300006: TestAnimation_3
+    21300008: TestAnimation_4
+    21300010: TestAnimation_5
+    21300012: TestAnimation_6
+    21300014: TestAnimation_7
+    21300016: TestAnimation_8
+    21300018: TestAnimation_9
+    21300020: TestAnimation_10
+    21300022: TestAnimation_11
+    21300024: TestAnimation_12
+    21300026: TestAnimation_13
+    21300028: TestAnimation_14
+    21300030: TestAnimation_15
+    21300032: TestAnimation_16
+    21300034: TestAnimation_17
+    21300036: TestAnimation_18
+    21300038: TestAnimation_19
+    21300040: TestAnimation_20
+    21300042: TestAnimation_21
+    21300044: TestAnimation_22
+    21300046: TestAnimation_23
+    21300048: TestAnimation_24
+    21300050: TestAnimation_25
+    21300052: TestAnimation_26
+    21300054: TestAnimation_27
+    21300056: TestAnimation_28
+    21300058: TestAnimation_29
+    21300060: TestAnimation_30
+    21300062: TestAnimation_31
+    21300064: TestAnimation_32
+    21300066: TestAnimation_33
+    21300068: TestAnimation_34
+    21300070: TestAnimation_35
+    21300072: TestAnimation_36
+    21300074: TestAnimation_37
+    21300076: TestAnimation_38
+    21300078: TestAnimation_39
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 1024
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TestAnimation_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 991
+        width: 64
+        height: 23
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 986
+        width: 64
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_2
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 982
+        width: 64
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_3
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 978
+        width: 64
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_4
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 973
+        width: 64
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_5
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 968
+        width: 64
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_6
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 906
+        width: 64
+        height: 51
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_7
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 901
+        width: 64
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_8
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 899
+        width: 64
+        height: 58
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_9
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 897
+        width: 64
+        height: 60
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_10
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 892
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_11
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 887
+        width: 64
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_12
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 802
+        width: 64
+        height: 74
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_13
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 799
+        width: 64
+        height: 76
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_14
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 798
+        width: 64
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_15
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 793
+        width: 64
+        height: 83
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_16
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 788
+        width: 64
+        height: 88
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_17
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 783
+        width: 64
+        height: 92
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_18
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 677
+        width: 64
+        height: 94
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_19
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 676
+        width: 64
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_20
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 668
+        width: 64
+        height: 104
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_21
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 660
+        width: 64
+        height: 112
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_22
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 653
+        width: 64
+        height: 119
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_23
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 648
+        width: 64
+        height: 124
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_24
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 510
+        width: 64
+        height: 127
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_25
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 503
+        width: 64
+        height: 134
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_26
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 496
+        width: 64
+        height: 141
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_27
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 490
+        width: 64
+        height: 147
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_28
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 487
+        width: 64
+        height: 150
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_29
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 483
+        width: 64
+        height: 154
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_30
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 311
+        width: 64
+        height: 162
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_31
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 302
+        width: 64
+        height: 171
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_32
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 292
+        width: 64
+        height: 181
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_33
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 288
+        width: 64
+        height: 185
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_34
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 284
+        width: 64
+        height: 189
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_35
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 275
+        width: 64
+        height: 198
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_36
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 59
+        width: 64
+        height: 206
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_37
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 50
+        width: 64
+        height: 215
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_38
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 46
+        width: 64
+        height: 219
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: TestAnimation_39
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 43
+        width: 64
+        height: 222
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	445985469	Die			\Default Work Unit\Die	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	323755438	explosion	Y:\Documents\LineMan\LineAudio\.cache\Windows\SFX\explosion_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\explosion		658492
+

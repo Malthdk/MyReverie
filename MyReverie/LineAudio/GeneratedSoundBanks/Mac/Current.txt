@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2037989808	Current			\Default Work Unit\Current	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	517993266	current	Y:\Documents\LineMan\LineAudio\.cache\Mac\SFX\current_44BF3DE4.wem		\Actor-Mixer Hierarchy\Default Work Unit\current		1013888
+

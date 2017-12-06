@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	3650723969	Background			\Default Work Unit\Background	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	374406819	ambient_electro	Y:\Documents\LineMan\LineAudio\.cache\Windows\SFX\ambient_electro_F17FB28C.wem		\Actor-Mixer Hierarchy\Default Work Unit\ambient_electro		15063616
+

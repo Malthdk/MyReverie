@@ -1,0 +1,25 @@
+Event	ID	Name			Wwise Object Path	Notes
+	441965631	Stop_current			\Default Work Unit\Stop_current	
+	445985469	Die			\Default Work Unit\Die	
+	1054659462	EndLevel			\Default Work Unit\EndLevel	
+	1865857008	Transition			\Default Work Unit\Transition	
+	2037989808	Current			\Default Work Unit\Current	
+	2756333705	Collect			\Default Work Unit\Collect	
+	3650723969	Background			\Default Work Unit\Background	
+	3833651337	Jump			\Default Work Unit\Jump	
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	1908158473	Pitch			\Default Work Unit\Pitch	
+
+Modulator Envelope	ID	Name			Wwise Object Path	Notes
+	132339282	New Modulator Envelope			\Default Work Unit\New Modulator Envelope	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	323755438	explosion	Y:\Documents\LineMan\LineAudio\.cache\Windows\SFX\explosion_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\explosion		658492
+	374406819	ambient_electro	Y:\Documents\LineMan\LineAudio\.cache\Windows\SFX\ambient_electro_F17FB28C.wem		\Actor-Mixer Hierarchy\Default Work Unit\ambient_electro		15063616
+	440305206	jump	Y:\Documents\LineMan\LineAudio\.cache\Windows\SFX\jump_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\jump		88044
+	517993266	current	Y:\Documents\LineMan\LineAudio\.cache\Windows\SFX\current_44BF3DE4.wem		\Actor-Mixer Hierarchy\Default Work Unit\current		1013888
+	562559105	collect	Y:\Documents\LineMan\LineAudio\.cache\Windows\SFX\collect_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\collect		673112
+	631598015	transform	Y:\Documents\LineMan\LineAudio\.cache\Windows\SFX\transform_7A1FC3BA.wem		\Actor-Mixer Hierarchy\Default Work Unit\transform		507140
+	1013320859	end	Y:\Documents\LineMan\LineAudio\.cache\Windows\SFX\end_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\end		327232
+

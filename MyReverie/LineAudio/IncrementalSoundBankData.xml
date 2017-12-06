@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<IncrementalBankBuild Version="6" Flags="878078161">
+	<Platform GUID="{B9F72A4C-B737-419E-A9D2-84E94BFC7DBE}">
+		<Banks>
+			<Language ID="393239870">
+				<File Name="Background" Hash="1075474068" Timestamp="131537450430000000"/>
+				<File Name="Collect" Hash="1274141807" Timestamp="131557727160000000"/>
+				<File Name="Current" Hash="3506015534" Timestamp="131537450430000000"/>
+				<File Name="Die" Hash="2217196269" Timestamp="131537450430000000"/>
+				<File Name="EndLevel" Hash="1691781071" Timestamp="131537450430000000"/>
+				<File Name="Init" Hash="3997111523" Timestamp="131537450430000000"/>
+				<File Name="Jump" Hash="2466129172" Timestamp="131537450430000000"/>
+				<File Name="Transition" Hash="2490981954" Timestamp="131537450430000000"/>
+			</Language>
+		</Banks>
+		<XMLInfo>
+			<Language ID="-1">
+				<File Name="" Hash="687999456" Timestamp="131557727170000000"/>
+			</Language>
+		</XMLInfo>
+	</Platform>
+	<Platform GUID="{62225355-717E-4E0C-B797-974A68B2209D}">
+		<Banks>
+			<Language ID="393239870">
+				<File Name="Background" Hash="1075474068" Timestamp="131537450390000000"/>
+				<File Name="Collect" Hash="1274141807" Timestamp="131557727140000000"/>
+				<File Name="Current" Hash="3506015534" Timestamp="131537450390000000"/>
+				<File Name="Die" Hash="2217196269" Timestamp="131537450390000000"/>
+				<File Name="EndLevel" Hash="1691781071" Timestamp="131537450390000000"/>
+				<File Name="Init" Hash="4279406369" Timestamp="131537450390000000"/>
+				<File Name="Jump" Hash="2466129172" Timestamp="131537450390000000"/>
+				<File Name="Transition" Hash="2490981954" Timestamp="131537450390000000"/>
+			</Language>
+		</Banks>
+		<XMLInfo>
+			<Language ID="-1">
+				<File Name="" Hash="1258343050" Timestamp="131557727140000000"/>
+			</Language>
+		</XMLInfo>
+	</Platform>
+</IncrementalBankBuild>

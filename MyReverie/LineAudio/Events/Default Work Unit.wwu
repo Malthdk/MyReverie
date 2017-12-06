@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{01CDA8BC-683A-4288-9AA3-966B9C775560}" SchemaVersion="80">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{01CDA8BC-683A-4288-9AA3-966B9C775560}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Transition" ID="{9CBCFFE7-0423-4E80-B660-752C5EFB98A4}">
+					<ChildrenList>
+						<Action Name="" ID="{EE338795-35A1-4FC3-931D-2B8FD6BE45B7}" ShortID="654956599">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="transform" ID="{8E5C463C-3E3D-4703-8E84-CD288A87D1EE}" WorkUnitID="{4CD3DFF6-5F8B-47ED-8C9F-21B409724EB4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Background" ID="{D113F437-E329-4563-AB77-0BE4DF8B91C1}">
+					<ChildrenList>
+						<Action Name="" ID="{78ABA0C8-1CAE-448F-8DF4-BF9777801B67}" ShortID="533064469">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Interstellar" ID="{546B8B6F-B2C1-41EF-A233-CF11D2A59C54}" WorkUnitID="{4CD3DFF6-5F8B-47ED-8C9F-21B409724EB4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Die" ID="{C0CE4E01-CC9E-4704-84DF-483D629C4153}">
+					<ChildrenList>
+						<Action Name="" ID="{54C5B3D2-DB32-47E9-A93F-01B6755A9360}" ShortID="1022158391">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="explosion" ID="{B593C426-46D1-4A6C-9444-CCAC2343E90B}" WorkUnitID="{4CD3DFF6-5F8B-47ED-8C9F-21B409724EB4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Jump" ID="{E046298A-9701-479D-AA4D-223A4E770F74}">
+					<ChildrenList>
+						<Action Name="" ID="{6606709C-61D5-4978-A60A-BAED0B12CAD0}" ShortID="896926757">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="jump" ID="{1C37E73A-9FE9-4988-B01B-4F3F3D23436B}" WorkUnitID="{4CD3DFF6-5F8B-47ED-8C9F-21B409724EB4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Current" ID="{3543F074-BB6A-4993-B79A-E13BEB89008F}">
+					<ChildrenList>
+						<Action Name="" ID="{9720B2C2-2B30-43A6-9AAF-5B5EECFA4287}" ShortID="999341550">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="current" ID="{9F53EACA-99D6-4913-85DB-FE6512842A9C}" WorkUnitID="{4CD3DFF6-5F8B-47ED-8C9F-21B409724EB4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Collect" ID="{432B8568-17E2-4053-A5E6-E89B6A243F9D}">
+					<ChildrenList>
+						<Action Name="" ID="{222DBFB9-A6E5-418E-88B2-91463762560F}" ShortID="106558814">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+								<Property Name="Delay" Type="Real64" Value="0.1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="collect" ID="{62777B9D-3278-4AA9-B40F-C2D82A04A8F8}" WorkUnitID="{4CD3DFF6-5F8B-47ED-8C9F-21B409724EB4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{CB62AA46-8BCB-4248-869F-1108762F1966}" ShortID="166839305">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="pop" ID="{53D1219F-6921-4D14-9769-0846A71F60D4}" WorkUnitID="{4CD3DFF6-5F8B-47ED-8C9F-21B409724EB4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="EndLevel" ID="{CBD4B424-7E7A-4794-A2CB-DBAC3EDA4DE5}">
+					<ChildrenList>
+						<Action Name="" ID="{FC23B7F3-AF8D-47D6-92BF-CBE4E1B52163}" ShortID="242583838">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="end" ID="{0DC2867A-7A47-4A0E-BBDC-B5D23A1BDA1E}" WorkUnitID="{4CD3DFF6-5F8B-47ED-8C9F-21B409724EB4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

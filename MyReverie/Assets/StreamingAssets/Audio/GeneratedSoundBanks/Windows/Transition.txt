@@ -1,0 +1,9 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1865857008	Transition			\Default Work Unit\Transition	
+
+Modulator Envelope	ID	Name			Wwise Object Path	Notes
+	132339282	New Modulator Envelope			\Default Work Unit\New Modulator Envelope	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	631598015	transform	Y:\Documents\LineMan\LineAudio\.cache\Windows\SFX\transform_7A1FC3BA.wem		\Actor-Mixer Hierarchy\Default Work Unit\transform		507140
+
