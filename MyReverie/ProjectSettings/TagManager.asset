@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - player
+  - killTag
+  - cPoint
+  - lovedOne
+  - ai
+  - key
   layers:
   - Default
   - TransparentFX

@@ -177,7 +177,7 @@ public class Player : MonoBehaviour {
 				AkSoundEngine.SetRTPCValue ("Pitch", 2);	//Sound
 			}
 		}
-	if (movementUnlocked == true)
+		if (movementUnlocked == true)
 		{
 			velocity.y += gravity * Time.deltaTime;	
 		}
