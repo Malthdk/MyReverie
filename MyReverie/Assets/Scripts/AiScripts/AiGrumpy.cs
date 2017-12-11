@@ -8,6 +8,7 @@ public class AiGrumpy : MonoBehaviour {
 	public Grumpy grumpy;
 	public Color deadly;
 	public LayerMask collisionMask;
+	public GameObject projectile;
 	public int stressedSpeed = 5;
 	public int relaxSpeed = 2;
 	public float stressedTime = 5f;
@@ -27,12 +28,14 @@ public class AiGrumpy : MonoBehaviour {
 	private GameObject parent;
 	private Animator animator;
 	private bool spookedAnimation;
+	public bool canShoot;
 
 	public enum Grumpy
 	{
 		Spooked,
 		Stressed,
-		Relaxed
+		Relaxed,
+		Angry
 	}
 
 	void Start () 
@@ -54,7 +57,7 @@ public class AiGrumpy : MonoBehaviour {
 		PlaceRayOrigin();
 
 		switch(grumpy)
-		{
+		{	
 		case Grumpy.Spooked:
 			transform.GetChild(0).gameObject.tag = "Untagged";
 			sRenderer.color = Color.white;
@@ -92,6 +95,24 @@ public class AiGrumpy : MonoBehaviour {
 				ShootRay();
 			}
 			break;
+		case Grumpy.Angry:
+			sRenderer.color = deadly;
+			pSystem.startColor = deadly;
+			//transform.GetChild(0).gameObject.tag = "killTag";
+
+			if (canShoot)
+			{
+				StartCoroutine("Fire");
+				canShoot = false;
+			}	
+
+			if (!TargetIsClose() && relaxing)
+			{
+				relaxing = false;
+				StartCoroutine("StressToRelax");
+			}
+
+			break;
 		}
 	}
 		
@@ -103,16 +124,23 @@ public class AiGrumpy : MonoBehaviour {
 		relaxing = true;
 		if (!aiHandler.neutralised)
 		{
-			aiHandler.behaviour = AiBehaviour.Patrol;
+			//aiHandler.behaviour = AiBehaviour.Patrol;
 		}
-		grumpy = Grumpy.Stressed;
+		//grumpy = Grumpy.Stressed;
+		grumpy = Grumpy.Angry;
 	}
 
 	IEnumerator StressToRelax()
 	{
 		yield return new WaitForSeconds(stressedTime);
 		canSee = true;
+		if (!aiHandler.neutralised)
+		{
+			aiHandler.behaviour = AiBehaviour.Patrol;
+		}
 		grumpy = Grumpy.Relaxed;
+		StopCoroutine("Fire");
+		canShoot = true;
 	}
 
 	void ShootRay()
@@ -160,5 +188,12 @@ public class AiGrumpy : MonoBehaviour {
 		bounds = bCollider.bounds;
 		bounds.Expand (0.015f * -2);
 		rayOrigin = new Vector2(bounds.center.x, bounds.center.y);
+	}
+
+	IEnumerator Fire()
+	{
+		yield return new WaitForSeconds(1.5f);
+		GameObject.Instantiate(projectile, transform.position + (1f * transform.up), transform.rotation);
+		StartCoroutine("Fire");
 	}
 }

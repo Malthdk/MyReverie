@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4878341499608068}
   - component: {fileID: 212764746078561998}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Trail_OnOff_Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}

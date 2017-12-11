@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61303547429208880}
   - component: {fileID: 114515362593618040}
   - component: {fileID: 50000294952195824}
-  m_Layer: 12
+  m_Layer: 10
   m_Name: MovingPlatformOnOff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   horizontalRayCount: 4
   verticalRayCount: 16
   horizontalRaySpacing: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
   collider: {fileID: 0}
   passengerMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 256
   localWaypoints:
   - {x: 0, y: 0, z: 0}
   - {x: 35, y: 0, z: 0}

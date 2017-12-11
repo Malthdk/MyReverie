@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212651961891718964}
   - component: {fileID: 61080641584220734}
   - component: {fileID: 114916018424103068}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: MovingPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   horizontalRayCount: 4
   verticalRayCount: 16
   horizontalRaySpacing: 0
@@ -88,7 +88,7 @@ MonoBehaviour:
   collider: {fileID: 0}
   passengerMask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 256
   localWaypoints:
   - {x: 0, y: 0, z: 0}
   - {x: 3.34, y: -7, z: 0}
