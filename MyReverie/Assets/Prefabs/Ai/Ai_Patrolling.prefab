@@ -257,7 +257,7 @@ MonoBehaviour:
   isPatrolling: 1
   enemyMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512
   speed: 3
   raylength: 1
   mimic: 0

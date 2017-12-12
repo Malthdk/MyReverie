@@ -50,6 +50,7 @@ public class Key : MonoBehaviour {
 		{
 			if (IntoLine.instance.transforming)
 			{
+				transform.parent.position = transform.parent.transform.parent.transform.parent.position;
 				DropKey();
 			}
 		}
@@ -61,7 +62,7 @@ public class Key : MonoBehaviour {
 		{
 			PickUpKey(other.transform);
 		}
-		if (other.tag == "killTag")
+		if (other.tag == "killTag" && !hasKey)
 		{
 			ResetPosition();
 		}

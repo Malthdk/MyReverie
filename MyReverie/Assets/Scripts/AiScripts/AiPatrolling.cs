@@ -255,19 +255,19 @@ public class AiPatrolling : MonoBehaviour {
 				{
 					if (aiDirection == AiDirection.Floor)
 					{
-						StartCoroutine(TransformAI(new Vector3(0f, -1.5f, 0f), AiDirection.Cieling, 180f, 180f));	
+						StartCoroutine(TransformAI(new Vector3(0f, -0.8f, 0f), AiDirection.Cieling, 180f, 180f));	
 					}
 					else if (aiDirection == AiDirection.Cieling)
 					{
-						StartCoroutine(TransformAI(new Vector3(0f, -1.5f, 0f), AiDirection.Floor, 180f, 180f));
+						StartCoroutine(TransformAI(new Vector3(0f, -0.8f, 0f), AiDirection.Floor, 180f, 180f));
 					}
 					else if (aiDirection == AiDirection.Rightwall)
 					{
-						StartCoroutine(TransformAI(new Vector3(0f, -1.5f, 0f), AiDirection.Leftwall, 180f, 180f));
+						StartCoroutine(TransformAI(new Vector3(0f, -0.8f, 0f), AiDirection.Leftwall, 180f, 180f));
 					}
 					else if (aiDirection == AiDirection.Leftwall)
 					{
-						StartCoroutine(TransformAI(new Vector3(0f, -1.5f, 0f), AiDirection.Rightwall, 180f, 180f));
+						StartCoroutine(TransformAI(new Vector3(0f, -0.8f, 0f), AiDirection.Rightwall, 180f, 180f));
 					}
 				}		
 			}

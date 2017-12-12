@@ -240,7 +240,7 @@ MonoBehaviour:
   isPatrolling: 1
   enemyMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 512
   speed: 6
   raylength: 1
   mimic: 0
@@ -265,16 +265,16 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 1793
-  projectile: {fileID: 0}
+  projectile: {fileID: 1989012078703054, guid: fcd010c149f5d4ed4bb3ff1faaec109d, type: 2}
   stressedSpeed: 8
   relaxSpeed: 2
   stressedTime: 3
   spookedTime: 0.3
-  visualRadius: 10
+  visualRadius: 15
   canSee: 0
   isSpooked: 0
   relaxing: 0
-  canShoot: 0
+  canShoot: 1
 --- !u!114 &114877715368783578
 MonoBehaviour:
   m_ObjectHideFlags: 1
