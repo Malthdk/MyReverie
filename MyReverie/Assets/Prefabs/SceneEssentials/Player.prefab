@@ -423,7 +423,7 @@ MonoBehaviour:
   verticalRaySpacing: 0
   collider: {fileID: 0}
   direction: 0
-  yOffsetRightLeft: 0.35
+  yOffsetRightLeft: 0.9
   yOffsetUpDown: -0.8
   transforming: 0
   inputLocked: 0
