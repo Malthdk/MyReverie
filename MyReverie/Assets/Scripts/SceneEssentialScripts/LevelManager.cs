@@ -168,6 +168,8 @@ public class LevelManager : MonoBehaviour {
 		yield return new WaitForEndOfFrame();	
 
 		float fadeTime = GameObject.Find("_GM").GetComponent<Fading>().BeginFade(1);
+		yield return new WaitForSeconds(fadeTime);
+
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 	}
 

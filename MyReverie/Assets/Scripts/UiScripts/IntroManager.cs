@@ -35,7 +35,10 @@ public class IntroManager : MonoBehaviour {
 
 		while (actText.color.a < 1f)
 		{
-			Fade(actText);
+			if (actText != null)
+			{
+				Fade(actText);	
+			}
 			yield return new WaitForEndOfFrame();
 		}
 
@@ -43,7 +46,10 @@ public class IntroManager : MonoBehaviour {
 
 		while (quoteText.color.a < 1f)
 		{
-			Fade(quoteText);
+			if (quoteText != null)
+			{
+				Fade(quoteText);	
+			}
 			yield return new WaitForEndOfFrame();
 		}
 
@@ -51,7 +57,10 @@ public class IntroManager : MonoBehaviour {
 
 		while (personText.color.a <= 1f)
 		{
-			Fade(personText);
+			if (personText != null)
+			{
+				Fade(personText);	
+			}
 			yield return new WaitForEndOfFrame();
 		}
 	}

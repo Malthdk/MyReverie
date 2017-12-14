@@ -99,6 +99,6 @@ public class Door : MonoBehaviour {
 		
 	void CompletedLevel() 
 	{
-		StartCoroutine(LevelManager.instance.NextLevel(nextLevelName));	
+		StartCoroutine(LevelManager.instance.LoadNextLevel());	
 	}
 }
