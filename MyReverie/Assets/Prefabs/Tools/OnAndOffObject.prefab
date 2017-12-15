@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 61826459195162894}
   - component: {fileID: 114893484935040210}
   - component: {fileID: 95960139819389112}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: OnAndOffObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 20.335001, y: 3.5}
+    oldSize: {x: 20.44, y: 3.52}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -128,8 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onAndOff: 1
-  offColor: {r: 0.13235295, g: 0.13235295, b: 0.13235295, a: 1}
-  onColor: {r: 1, g: 1, b: 1, a: 1}
+  offColor: {r: 0.14553753, g: 0.018923014, b: 0.25735295, a: 1}
+  onColor: {r: 0.5411765, g: 0.1764706, b: 0.8078432, a: 1}
 --- !u!198 &198337880592337780
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -3476,8 +3476,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e13a988fa920c4e44a37fe301327cbbb, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 696ecbf194ab24d789e8c96a0e0474b6, type: 3}
+  m_Color: {r: 0.53927046, g: 0.17841694, b: 0.8088235, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3485,4 +3485,4 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2
