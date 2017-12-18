@@ -7,7 +7,8 @@ public enum AiBehaviour
 	Patrol,
 	Agro,
 	Chase,
-	Neutralised
+	Neutralised,
+	Incapacitated
 }
 
 public class AiHandler : MonoBehaviour {
@@ -17,6 +18,7 @@ public class AiHandler : MonoBehaviour {
 	[HideInInspector]
 	public SpriteRenderer sRenderer; //This should be referenced by all children instead of making their own call individually
 	public GameObject graphics;
+	public float incapacitateTime;
 
 	//Privates
 	public bool neutralised;
@@ -87,6 +89,11 @@ public class AiHandler : MonoBehaviour {
 				neutralised = true;
 			}
 			break;
+
+		case AiBehaviour.Incapacitated:
+			patrollingScript.isPatrolling = false;
+			StartCoroutine("Incapacitate");
+			break;
 		}
 	}
 
@@ -111,7 +118,7 @@ public class AiHandler : MonoBehaviour {
 			turncoatScript.enabled = false;
 		}
 	}
-
+		
 	public void HostalizseAI()
 	{
 		if (behaviour != AiBehaviour.Patrol)
@@ -142,5 +149,18 @@ public class AiHandler : MonoBehaviour {
 			turncoatScript.enabled = true;
 		}
 
+	}
+
+	public IEnumerator Incapacitate()
+	{
+		Vector3 originalSize = transform.localScale;
+		Vector3 scaleDown = originalSize;
+		scaleDown.y = 0.5f;
+		transform.localScale = scaleDown;
+		Debug.Log("scaling");
+		yield return new WaitForSeconds(incapacitateTime);
+		transform.localScale = originalSize;
+		behaviour = AiBehaviour.Patrol;
+		StopCoroutine("Incapacitate");
 	}
 }

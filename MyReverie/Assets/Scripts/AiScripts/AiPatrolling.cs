@@ -415,6 +415,7 @@ public class AiPatrolling : MonoBehaviour {
 			//aiHandler.behaviour = AiBehaviour.Patrol;
 			aiHandler.HostalizseAI();
 		}
+		aiHandler.behaviour = AiBehaviour.Patrol;
 		yield return new WaitForEndOfFrame();
 
 		transforming = false;

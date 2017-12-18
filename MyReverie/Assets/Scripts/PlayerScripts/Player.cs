@@ -21,7 +21,7 @@ public class Player : MonoBehaviour {
 	public int wallDirX;
 
 	public float gravity;					//gramaxJumpVelocity to player
-	[HideInInspector]
+	//[HideInInspector]
 	public float maxJumpVelocity, minJumpVelocity;			//Min jump velocity
 	public Vector3 velocity;				//velocity
 	[HideInInspector]
