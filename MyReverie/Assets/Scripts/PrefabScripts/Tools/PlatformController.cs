@@ -32,6 +32,10 @@ public class PlatformController : RaycastController {
 
 	public Platform platform;
 	private bool pltCanChange;
+
+	private Vector3 velocity;
+	private bool hasReset;
+
 	public enum Platform
 	{
 		Move,
@@ -65,7 +69,7 @@ public class PlatformController : RaycastController {
 			UpdateRaycastOrigins();
 			CalculateRaySpacing();
 
-			Vector3 velocity = CalculatePlatformMovement();
+			velocity = CalculatePlatformMovement();
 			CalculatePassengerMovement(velocity);
 			MovePassengers(true);
 			transform.Translate(velocity);
@@ -112,6 +116,18 @@ public class PlatformController : RaycastController {
 		float easedPercentBetweenWaypoints = Ease(percentBetweenWaypoints); //eased percentage
 
 		Vector3 newPos = Vector3.Lerp(globalWaypoints[fromWaypointIndex], globalWaypoints[toWaypointIndex], easedPercentBetweenWaypoints);
+
+		if (hasReset)
+		{
+			toWaypointIndex = 0;
+			distanceBetweenWaypoints = 0f;
+			easedPercentBetweenWaypoints = 0f;
+			percentBetweenWaypoints = 0f;
+			fromWaypointIndex = 0;
+			nextMoveTime = 0f;
+			newPos = globalWaypoints[0];
+			hasReset = false;
+		}
 
 		if (percentBetweenWaypoints >= 1) //reached next waypoint
 		{
@@ -500,5 +516,22 @@ public class PlatformController : RaycastController {
 			platform = Platform.Move;
 		}
 	}
+
+	public void ResetPlatform()
+	{
+		gameObject.transform.position = globalWaypoints[0];
+		velocity = new Vector3(0f, 0f, 0f);
+		//if (isElevator)
+		//{
+		//	elevator = true;			
+		//}
+		//else if (isPlatformActivator)
+		//{
+		//	platformActivator = true;
+		//}
+		hasReset = true;
+		platform = Platform.Stop;
+	}
+
 
 }

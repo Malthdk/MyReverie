@@ -17,7 +17,7 @@ public class LevelManager : MonoBehaviour {
 	public List<RevealButton> revButtons;
 	public List<HeartPower> heartPower;
 //	public List<GameObject> stateObjects;
-//	public List<PlatformController> platforms;
+	public List<PlatformController> platforms;
 //	public List<Lever> levers;
 //	public List<FallingPlatform> fallingPlatforms;
 //	public List<PickUpGlobe> orbs;
@@ -126,6 +126,8 @@ public class LevelManager : MonoBehaviour {
 		ResetAis(ais);				//Resetting AIs
 		ResetReveals(revButtons);	//Resetting Reveal Buttons
 		ResetHearts(heartPower);	//Resetting Heart Power Ups
+		ResetPlatforms(platforms);	//Resetting Moving Platforms
+
 		particleEffect.Stop();
 		player.transform.position = currentCheckpoint.transform.position;
 //		player.tag = currentTag;
@@ -246,20 +248,20 @@ public class LevelManager : MonoBehaviour {
 //		}
 //	}
 //
-//	void ResetPlatforms(List<PlatformController> theList)
-//	{
-//		if (theList.Count == 0)
-//		{
-//			return;
-//		}
-//		else
-//		{
-//			for (int i = 0; i < theList.Count; i++)
-//			{
-//				theList[i].ResetPlatform();
-//			}	
-//		}
-//	}
+	void ResetPlatforms(List<PlatformController> theList)
+	{
+		if (theList.Count == 0)
+		{
+			return;
+		}
+		else
+		{
+			for (int i = 0; i < theList.Count; i++)
+			{
+				theList[i].ResetPlatform();
+			}	
+		}
+	}
 //
 //	void ResetLevers(List<Lever> theList)
 //	{
@@ -354,11 +356,11 @@ public class LevelManager : MonoBehaviour {
 //			fallingPlatforms.Add(fPlatform);
 //		}
 //
-//		foreach(GameObject pObject in FindGameObjectsWithTags(new string[]{"movingPlatform", "chaseBoss"})) 
-//		{
-//			PlatformController pController = pObject.GetComponent<PlatformController>();
-//			platforms.Add(pController);
-//		}
+		foreach(GameObject pObject in GameObject.FindGameObjectsWithTag("movingPlatform"))
+		{
+			PlatformController pController = pObject.GetComponent<PlatformController>();
+			platforms.Add(pController);
+		}
 //
 //		foreach(GameObject lObject in GameObject.FindGameObjectsWithTag("Lever")) 
 //		{
