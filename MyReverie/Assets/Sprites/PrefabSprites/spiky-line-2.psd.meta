@@ -1,9 +1,12 @@
 fileFormatVersion: 2
-guid: 696ecbf194ab24d789e8c96a0e0474b6
-timeCreated: 1514506919
+guid: c76d6269a1fc84d49a2c410563b389c9
+timeCreated: 1514506552
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: spiky-line-2_0
+    21300002: spiky-line-2_1
+    21300004: spiky-line-2_2
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -45,8 +48,8 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 211, y: 0, z: 165, w: 0}
-  spritePixelsToUnits: 50
+  spriteBorder: {x: 76, y: 0, z: 72, w: 0}
+  spritePixelsToUnits: 100
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -103,7 +106,49 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: spiky-line-2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 152
+        height: 199
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spiky-line-2_1
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 0
+        width: 626
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spiky-line-2_2
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 0
+        width: 140
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 

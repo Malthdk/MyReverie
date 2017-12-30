@@ -22,8 +22,7 @@ GameObject:
   - component: {fileID: 212443341992709536}
   - component: {fileID: 50494852196921930}
   - component: {fileID: 61193811272256572}
-  - component: {fileID: 114771585663762226}
-  - component: {fileID: 114179529875159570}
+  - component: {fileID: 114771996951042556}
   m_Layer: 0
   m_Name: KillObject
   m_TagString: killTag
@@ -37,9 +36,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1546978778444458}
-  m_LocalRotation: {x: -5.487019e-10, y: -0.0033475247, z: 0.9999944, w: 0.00000016391184}
-  m_LocalPosition: {x: 0.55, y: -4.72, z: -0.24}
-  m_LocalScale: {x: 0.16626786, y: 0.1127654, z: 1}
+  m_LocalRotation: {x: 0.0033475247, y: -2.9103828e-10, z: -0.00000013411041, w: 0.9999944}
+  m_LocalPosition: {x: 1.8909, y: -9.2, z: -0.33}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -78,18 +77,18 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0.76, y: 0, z: 0.78, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 20.44, y: 3.52}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
+    oldSize: {x: 7.63, y: 1.08}
+    newSize: {x: 12.969309, y: 1}
+    adaptiveTilingThreshold: 0
+    drawMode: 2
+    adaptiveTiling: 1
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 20.335001, y: 3.4999995}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114179529875159570
+--- !u!114 &114771996951042556
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -97,43 +96,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1546978778444458}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 874b62176fa7846e7871169575ce7e95, type: 3}
+  m_Script: {fileID: 11500000, guid: 07388aed922a042ee816c230355a236b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerList: f7e1664c
-  useOtherObject: 0
-  valueGuid: 74f043356abb9349b79ae13beb89008f
-  eventID: 2037989808
-  soundEmitterObject: {fileID: 0}
-  enableActionOnEvent: 0
-  actionOnEventType: 0
-  curveInterpolation: 4
-  transitionDuration: 0
-  m_callbackData: {fileID: 0}
-  playingId: 0
-  multiPositionTypeLabel: 0
-  multiPositionArray: []
---- !u!114 &114771585663762226
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1546978778444458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b507f6a7bf79f4153b0b24e84e652e6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_positionOffsetData:
-    positionOffset: {x: 0, y: 0, z: 0}
-    KeepMe: 0
-  isEnvironmentAware: 0
-  isStaticObject: 0
-  m_listeners:
-    initialListenerList:
-    - {fileID: 0}
-  m_posOffsetData: {fileID: 0}
-  listenerMask: 1
 --- !u!212 &212443341992709536
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -143,6 +108,7 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
@@ -158,6 +124,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -166,13 +133,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 696ecbf194ab24d789e8c96a0e0474b6, type: 3}
-  m_Color: {r: 0.8161765, g: 0.28206095, b: 0.28206095, a: 1}
+  m_Sprite: {fileID: 21300000, guid: c76d6269a1fc84d49a2c410563b389c9, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
+  m_DrawMode: 2
+  m_Size: {x: 12.969309, y: 1}
+  m_AdaptiveModeThreshold: 0
+  m_SpriteTileMode: 1
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
