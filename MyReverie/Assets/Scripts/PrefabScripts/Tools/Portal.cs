@@ -19,12 +19,16 @@ public class Portal : MonoBehaviour {
 	private ParticleSystem otherSide1;
 	private ParticleSystem otherSide2;
 
+	private BoxCollider2D bCol;
+
 	private float xPortalOffsetRight = 0.85f;
 	private float xPortalOffsetLeft = -0.85f;
 	private float yPortalOffsetUpDown = -0.85f;
 
 	void Start () 
 	{
+		bCol = gameObject.GetComponent<BoxCollider2D>();
+
 		ownSide1 = transform.GetChild(0).GetComponent<ParticleSystem>();
 		ownSide2 = transform.GetChild(1).GetComponent<ParticleSystem>();
 		otherSide1 = otherPortal.gameObject.transform.GetChild(0).GetComponent<ParticleSystem>();
@@ -34,6 +38,7 @@ public class Portal : MonoBehaviour {
 
 	void Update () 
 	{
+
 		if (leftArea && !IntoLine.instance.transforming)
 		{
 			playerOnPortal = false;
@@ -58,14 +63,14 @@ public class Portal : MonoBehaviour {
 					intolineScript.portalDirection = IntoLine.Direction.Leftwall;
 					intolineScript.portalTransformation.x = xPortalOffsetRight;
 
-					ParticleHandler(true);
+					//ParticleHandler(true);
 				}
 				else if (intolineScript.direction == IntoLine.Direction.Cieling)
 				{
 					intolineScript.portalDirection = IntoLine.Direction.Rightwall;
 					intolineScript.portalTransformation.x = xPortalOffsetRight;
 
-					ParticleHandler(false);
+					//ParticleHandler(false);
 				}
 				else if (intolineScript.direction == IntoLine.Direction.Leftwall)
 				{
@@ -89,14 +94,14 @@ public class Portal : MonoBehaviour {
 					intolineScript.portalDirection = IntoLine.Direction.Cieling;
 					intolineScript.portalTransformation.y = yPortalOffsetUpDown;
 
-					ParticleHandler(true);
+					//ParticleHandler(true);
 				}
 				else if (intolineScript.direction == IntoLine.Direction.Cieling)
 				{
 					intolineScript.portalDirection = IntoLine.Direction.Floor;
 					intolineScript.portalTransformation.y = yPortalOffsetUpDown;
 
-					ParticleHandler(false);
+					//ParticleHandler(false);
 				}
 				else if (intolineScript.direction == IntoLine.Direction.Leftwall)
 				{
@@ -113,11 +118,64 @@ public class Portal : MonoBehaviour {
 					ParticleHandler(false);
 				}
 			}
+
+			Debug.Log("player top: " + Mathf.Abs(other.bounds.center.y));
+			Debug.Log("own center: " + Mathf.Abs(bCol.bounds.max.y));
+
+			Debug.Log("transform");
+
+			//OVERVEJ AT GØR DET TIL EN LÅST VELOCITY SOM REGISTRERES VED FØRSTE COLLISION SÅ AT DEN IKKE BLIVER STØRRE ****************LAV NYT SCRIPT*****************
+			////
+			/// Vi skal bruge:
+			/// CalculatePosition
+			/// CalculateVelocity
+			/// TransformPlayer
+			/// 
+			/// Test med alle tænkelige situationer
+			/// Hvordan kan det maskeres?
+			////
+			if (intolineScript.direction == IntoLine.Direction.Floor)
+			{
+				if (Mathf.Abs(other.bounds.center.y) >= Mathf.Abs(bCol.bounds.max.y))
+				{
+					
+					intolineScript.portalDirection = IntoLine.Direction.Cieling;
+					intolineScript.portalTransformation.y = yPortalOffsetUpDown;
+
+					other.transform.Translate(new Vector3(0f, yPortalOffsetUpDown, 0f));
+					other.transform.position = new Vector3(otherPortal.position.x, otherPortal.position.y, otherPortal.position.z);
+					IntoLine.instance.direction = IntoLine.Direction.Cieling;
+
+					if (Player.instance.velocity.y < 0)
+					{
+						Player.instance.velocity.y = Mathf.Abs(Player.instance.velocity.y);
+						Player.instance.velocity.x = -Player.instance.velocity.x;//negative x to continue movement
+					}
+				}
+
+			}
+			else if (intolineScript.direction == IntoLine.Direction.Cieling)
+			{
+				if (Mathf.Abs(other.bounds.center.y) <= Mathf.Abs(bCol.bounds.max.y))
+				{
+					intolineScript.portalDirection = IntoLine.Direction.Floor;
+					intolineScript.portalTransformation.y = yPortalOffsetUpDown;
+
+					other.transform.Translate(new Vector3(0f, yPortalOffsetUpDown, 0f));
+					other.transform.position = new Vector3(otherPortal.position.x, otherPortal.position.y, otherPortal.position.z);
+					IntoLine.instance.direction = IntoLine.Direction.Floor;
+
+					if (Player.instance.velocity.y < 0)
+					{
+						Player.instance.velocity.y = Mathf.Abs(Player.instance.velocity.y);
+						Player.instance.velocity.x = -Player.instance.velocity.x; //negative x to continue movement
+					}
+				}
+			}
 		}
 
 	}
-
-
+		
 	void ParticleHandler(bool side1)
 	{
 		if (side1)

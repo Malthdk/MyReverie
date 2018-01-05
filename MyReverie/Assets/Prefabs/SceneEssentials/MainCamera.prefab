@@ -228,7 +228,7 @@ MonoBehaviour:
   horizontalSmoothTime: 0.1
   horizontalLock: 1
   verticalLock: 0
-  focusAreaSize: {x: 4, y: 4}
+  focusAreaSize: {x: 5, y: 5}
   localBoundaries: []
   globalBoundaries: []
   MIN_X: 0

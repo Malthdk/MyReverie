@@ -34,13 +34,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1319510085206972}
-  m_LocalRotation: {x: -0, y: -0, z: -0.109696165, w: 0.9939652}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.22, y: 2.76, z: 7.59375}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.9, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -12.596001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23872132277949472
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -54,7 +54,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9c0dae648b95f490e95806dfd9b45399, type: 3}
+  - {fileID: 2100000, guid: 4fe223572238e48d187403d1b51ae8b2, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -90,7 +90,7 @@ TextMesh:
   m_FontSize: 160
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 9c0dae648b95f490e95806dfd9b45399, type: 3}
+  m_Font: {fileID: 12800000, guid: 4fe223572238e48d187403d1b51ae8b2, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 2533359615
