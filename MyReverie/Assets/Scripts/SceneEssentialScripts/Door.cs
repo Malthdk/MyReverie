@@ -32,7 +32,7 @@ public class Door : MonoBehaviour {
 		{
 			needKey = true; //midPoint = true;
 			//sRendererMid.enabled = true;
-			sRendererEnd.enabled = true; //sRendererEnd.enabled = false;
+			//sRendererEnd.enabled = true; //sRendererEnd.enabled = false;
 			//open = true;
 		}
 //		else if (isKey != null && isKey.gameObject == this.gameObject)
@@ -46,7 +46,7 @@ public class Door : MonoBehaviour {
 		{
 			//endPoint = true;
 			//sRendererMid.enabled = false;
-			sRendererEnd.enabled = true;
+			//sRendererEnd.enabled = true;
 			//open = true;
 			needKey = false;
 		}
