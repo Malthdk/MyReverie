@@ -9,7 +9,7 @@ public class Water : RaycastController {
 	public static bool leftArea;
 
 	//Public
-	public bool perpendicular;
+	public bool perpendicular, rotated;
 	public Transform otherPortal;
 	public LayerMask mask;
 
@@ -21,6 +21,9 @@ public class Water : RaycastController {
 	private SpriteMask otherTop;
 	private Water otherWater;
 	private Player player;
+	private SpriteRenderer playerRender;
+	private bool hitTop = true, hitBot = true;
+	private int hitCount = 0;
 
 	private BoxCollider2D playerCol;
 	private BoxCollider2D bCol;
@@ -34,9 +37,9 @@ public class Water : RaycastController {
 	{
 		base.Awake();
 		shootRays = true;
-
-		playerCol = GameObject.Find("Player").GetComponent<BoxCollider2D>();
 		player = GameObject.Find("Player").GetComponent<Player>();
+		playerCol = player.GetComponent<BoxCollider2D>();
+		playerRender = player.transform.GetChild(0).GetComponent<SpriteRenderer>();
 
 		bCol = gameObject.GetComponent<BoxCollider2D>();
 		intolineScript = IntoLine.instance.GetComponent<IntoLine>();
@@ -64,117 +67,111 @@ public class Water : RaycastController {
 		if (Controller2D.instance.collisions.below)
 		{
 			playerVelocity = 0;
+			hitCount = 0;
+			hitBot = true;
+			hitTop = true;
 			shootRays = true;
 			maskTop.gameObject.SetActive(false);
 			maskBot.gameObject.SetActive(false);
 		}
-
-//		if (hasPlayer)
-//		{
-//			if (intolineScript.direction == IntoLine.Direction.Floor)
-//			{
-//				if (Mathf.Abs(playerCol.bounds.center.y) >= Mathf.Abs(maskBot.bounds.center.y))
-//				{
-//					StartCoroutine(TransformPlayer(IntoLine.Direction.Cieling));
-//				}
-//			}
-//			if (intolineScript.direction == IntoLine.Direction.Cieling)
-//			{
-//				if (Mathf.Abs(playerCol.bounds.center.y) <= Mathf.Abs(maskTop.bounds.center.y))
-//				{
-//					StartCoroutine(TransformPlayer(IntoLine.Direction.Floor));
-//				}
-//			}
-//		}
 	}
 	//// TO DO 
 	////
-	/// NY måde at se hvornår spilleren skal transformeres
-	/// Bedre Maske system - (den er uregelmæssig nu)
+	/// Test med moving camera. Needs a smooth camera to work
 	/// 
-	/// Når det virker "perfekt" med disse to - implimenter resten.
-	////
-	void OnTriggerStay2D(Collider2D other)
+	/// BUGS: Releasing "space" can fuck it up sometimes - fx. mid transport
+	/// Going from portal set to portal set can fuck it up. Think it is when you hit your own fx. top rays and then hit the other's top rays.
+	/// Building momentum has to be more intuitive if we want to use those types of puzzles.
+	/// 
+
+	//Holds all possible interaction scenarios
+	void MovePlayer()
 	{
-		if (other.tag == "player")
+		if (!perpendicular)
 		{
-			if (intolineScript.direction == IntoLine.Direction.Floor)
+			if (intolineScript.direction == IntoLine.Direction.Floor && hitCount == 2)
 			{
-				if (Mathf.Abs(playerCol.bounds.center.y) >= Mathf.Abs(maskBot.bounds.center.y))
-				{
-					StartCoroutine(TransformPlayer(IntoLine.Direction.Cieling));
-				}
+				StartCoroutine(TransformPlayer(IntoLine.Direction.Cieling));
 			}
-			if (intolineScript.direction == IntoLine.Direction.Cieling)
+			if (intolineScript.direction == IntoLine.Direction.Cieling && hitCount == 2)
 			{
-				if (Mathf.Abs(playerCol.bounds.center.y) <= Mathf.Abs(maskTop.bounds.center.y))
-				{
-					StartCoroutine(TransformPlayer(IntoLine.Direction.Floor));
-				}
+				StartCoroutine(TransformPlayer(IntoLine.Direction.Floor));
+			}
+
+			if (intolineScript.direction == IntoLine.Direction.Rightwall && hitCount == 2)
+			{
+				StartCoroutine(TransformPlayer(IntoLine.Direction.Leftwall));
+			}
+			if (intolineScript.direction == IntoLine.Direction.Leftwall && hitCount == 2)
+			{
+				StartCoroutine(TransformPlayer(IntoLine.Direction.Rightwall));
 			}
 		}
-	}
-
-	void ShootTopRays()
-	{
-		float rayLength = 1f + skinWidth;
-		for (int i = 0; i < verticalRayCount; i++)
+		else if (perpendicular)
 		{
-			Vector2 rayOrigin = raycastOrigins.topLeft;
-
-			rayOrigin += Vector2.right * (verticalRaySpacing * i);
-			RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up, rayLength, mask);
-
-			Debug.DrawRay(rayOrigin, Vector2.up * rayLength, Color.red);
-
-			if (hit)
+			if (intolineScript.direction == IntoLine.Direction.Floor && hitCount == 2)
 			{
-				Debug.Log(this.gameObject.name + " has hit a TopRay");
-				HandleMasks(true, false);
+				StartCoroutine(TransformPlayer(IntoLine.Direction.Leftwall));
+			}
+			if (intolineScript.direction == IntoLine.Direction.Leftwall && hitCount == 2)
+			{
+				StartCoroutine(TransformPlayer(IntoLine.Direction.Floor));
+			}
+
+			if (intolineScript.direction == IntoLine.Direction.Rightwall && hitCount == 2)
+			{
+				StartCoroutine(TransformPlayer(IntoLine.Direction.Cieling));
+			}
+			if (intolineScript.direction == IntoLine.Direction.Cieling && hitCount == 2)
+			{
+				StartCoroutine(TransformPlayer(IntoLine.Direction.Rightwall));
 			}
 		}
+
 	}
-
-	void ShootBottomRays()
-	{
-		float rayLength = 1f + skinWidth;
-		for (int i = 0; i < verticalRayCount; i++)
-		{
-			Vector2 rayOrigin = raycastOrigins.bottomLeft;
-
-			rayOrigin += Vector2.right * (verticalRaySpacing * i);
-			RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, rayLength, mask);
-
-			Debug.DrawRay(rayOrigin, Vector2.down * rayLength, Color.green);
-
-			if (hit)
-			{
-				Debug.Log(this.gameObject.name + " has hit a BotRay");
-				HandleMasks(false, true);
-			}
-		}
-	}
-
 		
-	//Moves the player and controlls mask behaviour
+	//Handles the transformation of player step by step
 	public IEnumerator TransformPlayer(IntoLine.Direction newDirection)
 	{
+		//Stop shooting rays on both portals
 		shootRays = false;
 		otherWater.shootRays = false;
+
+		//Calculating entrance point on water portal
 		CalculatePosition();
 
 		yield return new WaitForEndOfFrame();
-		//player.movementUnlocked = false;
 
-		playerCol.transform.position = new Vector3(otherPortal.position.x - offsetInWater, otherPortal.position.y, playerCol.transform.position.z);
+		//Making player invisible to ensure that he is not seen outsite mask
+		playerRender.enabled = false;
+
+		//Setting the new directionState for the player
 		IntoLine.instance.direction = newDirection;
-		playerCol.transform.Translate(new Vector3(0f, 1f, 0f)); //Offset to make it look like comming out of water
-		CalculateVelocity();
 
 		yield return new WaitForEndOfFrame();
-		//player.movementUnlocked = true;
+
+		//Making player visible again
+		playerRender.enabled = true;
+
+		//Changing the player's position based on whether he is going to a rotated or a nonrotated water portal
+		playerCol.transform.position = (otherWater.rotated)?new Vector3(otherPortal.position.x, otherPortal.position.y - offsetInWater, playerCol.transform.position.z):new Vector3(otherPortal.position.x - offsetInWater, otherPortal.position.y, playerCol.transform.position.z);
+
+		//Offset to make it look like comming out of water
+		playerCol.transform.Translate(new Vector3(0f, -2f, 0f));
+
+		//Setting the player's velocity
+		CalculateVelocity();
+
+		//We start shooting rays again
 		shootRays = true;
+
+		yield return new WaitForSeconds(0.5f);
+
+		//Resetting hitCount and hit booleans and starts to shoot rays on opposing portal again
+		hitCount = 0;
 		otherWater.shootRays = true;
+		hitBot = true;
+		hitTop = true;
 	}
 
 	//Calculates the velocity with which the player should emerge from the water based on the velocity when he landed on the water
@@ -183,8 +180,17 @@ public class Water : RaycastController {
 		//Creating a new constant velocity if the player hits the water for the first time (this prevents increminental build up of velocity)
 		if (playerVelocity == 0)
 		{
-			playerVelocity = player.velocity.y;
-			otherWater.playerVelocity = player.velocity.y;
+			//Hardcoding the minimum velocity for portal looping
+			if (Mathf.Abs(player.velocity.y) < 12)
+			{
+				playerVelocity = 15f;
+				otherWater.playerVelocity = 15f;
+			}
+			else
+			{
+				playerVelocity = player.velocity.y;
+				otherWater.playerVelocity = player.velocity.y;	
+			}
 		}
 
 		if (player.velocity.y < 0)
@@ -198,9 +204,19 @@ public class Water : RaycastController {
 	//Calculates the position on which the player should emerge from the water based on the position he landed on the water
 	void CalculatePosition()
 	{
-		float centerOfWater = bCol.bounds.center.x;
-		float distanceToPlayer = centerOfWater - playerCol.gameObject.transform.position.x;
+		float centerOfWater;
+		float distanceToPlayer;
 
+		if (rotated)
+		{
+			centerOfWater = bCol.bounds.center.y;
+			distanceToPlayer = centerOfWater - playerCol.gameObject.transform.position.y;
+		}
+		else
+		{
+			centerOfWater = bCol.bounds.center.x;
+			distanceToPlayer = centerOfWater - playerCol.gameObject.transform.position.x;	
+		}
 		offsetInWater = distanceToPlayer;
 	}
 
@@ -208,22 +224,137 @@ public class Water : RaycastController {
 	//Handles the masks that hide the player
 	void HandleMasks(bool isTop, bool isBelow)
 	{
-		shootRays = false;
 		if (isTop)
 		{
-			maskBot.gameObject.SetActive(true);
-			maskTop.gameObject.SetActive(false);
+			if ( hitCount == 0)
+			{
+				otherTop.gameObject.SetActive(true);
+				maskBot.gameObject.SetActive(true);
 
-			otherBot.gameObject.SetActive(false);
-			otherTop.gameObject.SetActive(true);
+				maskTop.gameObject.SetActive(false);
+				otherBot.gameObject.SetActive(false);
+			}
 		}
 		else if (isBelow)
 		{
-			maskBot.gameObject.SetActive(false);
-			maskTop.gameObject.SetActive(true);
+			if ( hitCount == 0)
+			{
+				maskTop.gameObject.SetActive(true);
+				otherBot.gameObject.SetActive(true);
 
-			otherBot.gameObject.SetActive(true);
-			otherTop.gameObject.SetActive(false);
+				maskBot.gameObject.SetActive(false);
+				otherTop.gameObject.SetActive(false);
+			}
+		}
+	}
+
+	///ALL BELOW
+	///Needs to be formatted into 1 function
+	void ShootTopRays()
+	{
+		if (!rotated)
+		{
+			float rayLength = 3f;
+			for (int i = 0; i < verticalRayCount; i++)
+			{
+				Vector2 rayOrigin = raycastOrigins.topLeft;
+				rayOrigin.y = rayOrigin.y + 1.25f;
+
+				rayOrigin += Vector2.right * (verticalRaySpacing * i);
+				RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up, rayLength, mask);
+
+				Debug.DrawRay(rayOrigin, Vector2.up * rayLength, Color.red);
+
+				if (hit)
+				{
+					HandleMasks(true, false);
+					if (hitTop)
+					{
+						hitCount ++;
+						hitTop = false;
+					}
+					MovePlayer();
+				}
+			}	
+		}
+		if (rotated)
+		{
+			float rayLength = 3f;
+			for (int i = 0; i < horizontalRayCount; i++)
+			{
+				Vector2 rayOrigin = raycastOrigins.bottomLeft;
+				rayOrigin.x = rayOrigin.x - 1.25f;
+
+				rayOrigin += Vector2.up * (horizontalRaySpacing * i);
+				RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.left, rayLength, mask);
+
+				Debug.DrawRay(rayOrigin, Vector2.left * rayLength, Color.red);
+
+				if (hit)
+				{
+					HandleMasks(true, false);
+					if (hitTop)
+					{
+						hitCount ++;
+						hitTop = false;
+					}
+					MovePlayer();
+				}
+			}	
+		}
+	}
+
+	void ShootBottomRays()
+	{
+		if (!rotated)
+		{
+			float rayLength = 3f;
+			for (int i = 0; i < verticalRayCount; i++)
+			{
+				Vector2 rayOrigin = raycastOrigins.bottomLeft;
+				rayOrigin.y = rayOrigin.y - 1.25f;
+
+				rayOrigin += Vector2.right * (verticalRaySpacing * i);
+				RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.down, rayLength, mask);
+
+				Debug.DrawRay(rayOrigin, Vector2.down * rayLength, Color.green);
+
+				if (hit)
+				{
+					HandleMasks(false, true);
+					if (hitBot)
+					{
+						hitCount ++;
+						hitBot = false;
+					}
+					MovePlayer();
+				}
+			}	
+		}
+		if (rotated)
+		{
+			float rayLength = 3f;
+			for (int i = 0; i < horizontalRayCount; i++)
+			{
+				Vector2 rayOrigin = raycastOrigins.bottomRight;
+				rayOrigin.x = rayOrigin.x + 1.25f;
+
+				rayOrigin += Vector2.up * (horizontalRaySpacing * i);
+				RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right, rayLength, mask);
+
+				Debug.DrawRay(rayOrigin, Vector2.right * rayLength, Color.green);
+
+				if (hit)
+				{
+					HandleMasks(false, true);
+					if (hitBot)
+					{
+						hitCount ++;
+						hitBot = false;
+					}
+					MovePlayer();
+				}
+			}	
 		}
 	}
 }

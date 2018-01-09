@@ -239,8 +239,6 @@ public class IntoLine : RaycastController {
 		ParticleSystem particleEffect = player.gameObject.transform.GetChild(2).GetChild(0).GetComponent<ParticleSystem>();
 		particleEffect.Play();
 		animator.SetTrigger("goDown");
-		controller.collisions.left = controller.collisions.right = false; //Quick fix for at sørge for at den ikke fortsat tror er er collisions. Dette gjorde at man kunne transforme lige efter en transform.
-
 
 		yield return new WaitForSeconds(0.4f);
 
@@ -268,13 +266,14 @@ public class IntoLine : RaycastController {
 
 		particleEffect.Stop();
 		transforming = false;
+		player.movementUnlocked = true;		//Unlocks movement and starts raycasting
 
 		yield return new WaitForEndOfFrame();
 
 		inputLocked = false;
-		player.movementUnlocked = true;		//Unlocks movement and starts raycasting
 
 		yield return new WaitForEndOfFrame();
+		controller.collisions.left = controller.collisions.right = false; //Quick fix for at sørge for at den ikke fortsat tror er er collisions. Dette gjorde at man kunne transforme lige efter en transform.
 	}
 
 	void PortalTransform(Transform portal)
@@ -336,7 +335,7 @@ public class IntoLine : RaycastController {
 		//if snaphit hits then we move the player based on the distance of the ray
 		if (snapHit)
 		{
-			Debug.Log("hit distance=" + snapHit.distance);
+			//Debug.Log("hit distance=" + snapHit.distance);
 			transform.Translate(new Vector3(0f, -snapHit.distance, 0f));
 		}
 	}
