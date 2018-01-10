@@ -74,8 +74,10 @@ public class AiPatrolling : MonoBehaviour {
 	void FixedUpdate ()
 	{
 		//Animations
-		animator.SetBool("isMoving", isMoving);
-		animator.SetBool("transforming", transforming);
+		if (animator != null) {
+			animator.SetBool("isMoving", isMoving);
+			animator.SetBool("transforming", transforming);
+		}
 
 		if (isPatrolling)
 		{
@@ -397,8 +399,11 @@ public class AiPatrolling : MonoBehaviour {
 			StopCoroutine(co);	
 		}
 		DisableAiFunctionality();
-		animator.ResetTrigger("goDown"); //stopping Animation
-		animator.ResetTrigger("goUp");	//stopping Animation
+		if (animator != null) {
+			animator.ResetTrigger("goDown"); //stopping Animation
+			animator.ResetTrigger("goUp");	//stopping Animation
+		}
+			
 		yield return new WaitForEndOfFrame();
 	
 		transform.position = startPosition;
