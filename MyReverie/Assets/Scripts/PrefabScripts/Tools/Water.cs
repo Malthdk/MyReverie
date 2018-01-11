@@ -228,6 +228,9 @@ public class Water : RaycastController {
 		{
 			if ( hitCount == 0)
 			{
+				//Resetting other water so that we know that we can go from water to water without going through water or landing on ground but simply through the air.
+				ResetOtherPortal();
+
 				otherTop.gameObject.SetActive(true);
 				maskBot.gameObject.SetActive(true);
 
@@ -239,6 +242,8 @@ public class Water : RaycastController {
 		{
 			if ( hitCount == 0)
 			{
+				ResetOtherPortal();
+
 				maskTop.gameObject.SetActive(true);
 				otherBot.gameObject.SetActive(true);
 
@@ -246,6 +251,14 @@ public class Water : RaycastController {
 				otherTop.gameObject.SetActive(false);
 			}
 		}
+	}
+
+	//Resets the other portal so that it can freshly be interacted with again
+	void ResetOtherPortal()
+	{
+		otherWater.hitCount = 0;
+		otherWater.hitTop = true;
+		otherWater.hitBot = true;
 	}
 
 	///ALL BELOW
