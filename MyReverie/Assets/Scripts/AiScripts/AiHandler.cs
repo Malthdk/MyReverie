@@ -26,6 +26,7 @@ public class AiHandler : MonoBehaviour {
 	public AiGrumpy grumpyScript;
 	public AiTurncoat turncoatScript;
 	private Color startColor;
+	private Animator anim;
 
 	void Awake () 
 	{
@@ -55,6 +56,11 @@ public class AiHandler : MonoBehaviour {
 		else 
 		{
 			grumpyScript = gameObject.GetComponent<AiGrumpy>();
+		}
+
+		if (transform.GetChild (0).GetComponent<Animator> () != null) 
+		{
+			anim = transform.GetChild (0).GetComponent<Animator> ();
 		}
 
 	}
@@ -87,6 +93,7 @@ public class AiHandler : MonoBehaviour {
 			{
 				NeutraliseAI();	
 				neutralised = true;
+				Debug.Log ("HIT");
 			}
 			break;
 
@@ -153,14 +160,16 @@ public class AiHandler : MonoBehaviour {
 
 	public IEnumerator Incapacitate()
 	{
-		Vector3 originalSize = transform.localScale;
+		/*Vector3 originalSize = transform.localScale;
 		Vector3 scaleDown = originalSize;
 		scaleDown.y = 0.5f;
-		transform.localScale = scaleDown;
+		transform.localScale = scaleDown;*/
+		anim.SetBool ("incapacitated", true);
 		Debug.Log("scaling");
 		yield return new WaitForSeconds(incapacitateTime);
-		transform.localScale = originalSize;
+		//transform.localScale = originalSize;
 		behaviour = AiBehaviour.Patrol;
+		anim.SetBool ("incapacitated", false);
 		StopCoroutine("Incapacitate");
 	}
 }

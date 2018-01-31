@@ -13,6 +13,8 @@ public class AiPatrolling : MonoBehaviour {
 	public bool mimic;
 	[HideInInspector]
 	public bool isMoving, isMimic; //in order to differentiate neutralized mimics from other patrolling AIs;
+	public bool rayOffsetToggle = true; // should the raycast be offset in x?
+	public float offSetForRay = 1.2f;
 
 	//Privates
 	private bool isGrounded, isBlocked, shootRays, transforming, canTransform;
@@ -23,6 +25,7 @@ public class AiPatrolling : MonoBehaviour {
 	private Coroutine co;
 
 	//For lineCasting
+	private Vector2 rayOffset;
 	private Vector2 lineCastPos;
 	private Vector2 wallCheck;
 	private Vector2 startPos;
@@ -306,7 +309,15 @@ public class AiPatrolling : MonoBehaviour {
 	{
 		if (shootRays)
 		{
-			lineCastPos = myTrans.position.toVector2() - myTrans.right.toVector2() * myWidth + startPos * myHeight/4;	
+			if (rayOffsetToggle) {
+				if (aiDirection == AiDirection.Cieling || aiDirection == AiDirection.Floor) {
+					rayOffset = new Vector2 (-offSetForRay * wallCheck.x, 0);
+				} else if (aiDirection == AiDirection.Rightwall || aiDirection == AiDirection.Leftwall) {
+					rayOffset = new Vector2 (0, -offSetForRay * wallCheck.y);
+				}
+			}
+
+			lineCastPos = myTrans.position.toVector2() - myTrans.right.toVector2() * myWidth + startPos * myHeight/4 + rayOffset;	
 
 			//Shooting towards ground
 			isGrounded = Physics2D.Linecast(lineCastPos, lineCastPos + (groundCheck * raylength), enemyMask);
