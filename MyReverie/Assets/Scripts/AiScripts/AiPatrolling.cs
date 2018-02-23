@@ -15,6 +15,7 @@ public class AiPatrolling : MonoBehaviour {
 	public bool isMoving, isMimic; //in order to differentiate neutralized mimics from other patrolling AIs;
 	public bool rayOffsetToggle = true; // should the raycast be offset in x?
 	public float offSetForRay = 1.2f;
+	public SpriteMask spriteMask;
 
 	//Privates
 	private bool isGrounded, isBlocked, shootRays, transforming, canTransform;
@@ -381,14 +382,23 @@ public class AiPatrolling : MonoBehaviour {
 		ParticleSystem particleEffect = gameObject.transform.GetChild(1).GetChild(0).GetComponent<ParticleSystem>();
 		particleEffect.Play();
 		animator.SetTrigger("goDown");				//animate go down
-		yield return new WaitForSeconds(0.8f);
+		yield return new WaitForSeconds(0.5f);
+
+		if (spriteMask != null) {
+			spriteMask.enabled = false;
+		}
 
 		particleEffect.Stop();
 		transform.Translate(transformation); 		//translate splace
 		transform.Rotate(0f, yRotation, zRotation);	//rotate 180 on y-axis
-		yield return new WaitForSeconds(0.1f);
+		yield return new WaitForSeconds(0.2f);
 
 		animator.SetTrigger("goUp");				//animate go up
+
+		if (spriteMask != null) {
+			spriteMask.enabled = true;
+		}
+
 		particleEffect.Play();
 		yield return new WaitForSeconds(0.8f);
 

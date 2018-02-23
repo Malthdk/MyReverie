@@ -323,11 +323,11 @@ public class LevelManager : MonoBehaviour {
 			AiPatrolling aiPatrol = aiObject.GetComponent<AiPatrolling>();
 			ais.Add(aiPatrol);
 		}
-		foreach(GameObject reObject in GameObject.FindGameObjectsWithTag("revealButton"))
+		/*foreach(GameObject reObject in GameObject.FindGameObjectsWithTag("revealButton"))
 		{
 			RevealButton revBut = reObject.GetComponent<RevealButton>();
 			revButtons.Add(revBut);
-		}
+		}*/
 		foreach(GameObject heObject in GameObject.FindGameObjectsWithTag("heartPower"))
 		{
 			HeartPower hPow = heObject.GetComponent<HeartPower>();

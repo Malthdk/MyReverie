@@ -7,24 +7,20 @@
 
 using UnityEngine;
 using UnityEditor;
-using System;
 using System.Linq;
-using System.IO;
-using System.Collections;
-using System.Reflection;
 using System.Collections.Generic;
-
-public enum AttenuationSphereOptions
-{
-	Dont_Show,
-	Current_Event_Only,
-	All_Events
-}
 
 [CanEditMultipleObjects]
 [CustomEditor(typeof(AkAmbient))]
 public class AkAmbientInspector : AkEventInspector
 {
+	public enum AttenuationSphereOptions
+	{
+		Dont_Show,
+		Current_Event_Only,
+		All_Events
+	}
+
 	AkAmbient m_AkAmbient;
 	SerializedProperty multiPositionType;
 	bool hideDefaultHandle = false;
@@ -98,7 +94,7 @@ public class AkAmbientInspector : AkEventInspector
 		}
 	}
 
-	public override void OnChildInspectorGUI()
+    public override void OnChildInspectorGUI()
 	{
 		//Save trigger mask to know when it chages
 		triggerList = m_AkAmbient.triggerList;
@@ -228,7 +224,12 @@ public class AkAmbientInspector : AkEventInspector
 
 			// Get the needed data before the handle
 			int controlIDBeforeHandle = GUIUtility.GetControlID(someHashCode, FocusType.Passive);
+#if UNITY_2017_3_OR_NEWER
+			bool isEventUsedBeforeHandle = (Event.current.type == EventType.Used);
+#else
 			bool isEventUsedBeforeHandle = (Event.current.type == EventType.used);
+#endif
+
 
 			Handles.color = Color.green;
 #if UNITY_5_6_OR_NEWER
@@ -245,7 +246,12 @@ public class AkAmbientInspector : AkEventInspector
 
 			// Get the needed data after the handle
 			int controlIDAfterHandle = GUIUtility.GetControlID(someHashCode, FocusType.Passive);
+#if UNITY_2017_3_OR_NEWER
+			bool isEventUsedByHandle = !isEventUsedBeforeHandle && (Event.current.type == EventType.Used);
+#else
 			bool isEventUsedByHandle = !isEventUsedBeforeHandle && (Event.current.type == EventType.used);
+#endif
+
 
 			if ((controlIDBeforeHandle < GUIUtility.hotControl && GUIUtility.hotControl < controlIDAfterHandle) ||
 				 isEventUsedByHandle)
@@ -344,7 +350,12 @@ public class AkAmbientInspector : AkEventInspector
 		{
 			Handles.color = new Color(1.0f, 0.0f, 0.0f, 0.1f);
 #if UNITY_5_6_OR_NEWER
+#if UNITY_2017_3_OR_NEWER
+            Handles.SphereHandleCap(0, in_position, Quaternion.identity, in_radius*2.0f, EventType.Repaint);
+#else
             Handles.SphereHandleCap(0, in_position, Quaternion.identity, in_radius*2.0f, EventType.repaint);
+#endif
+
 #else
 			Handles.SphereCap(0, in_position, Quaternion.identity, in_radius * 2.0f);
 #endif

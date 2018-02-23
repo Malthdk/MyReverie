@@ -6,8 +6,6 @@
 //////////////////////////////////////////////////////////////////////
 
 using UnityEngine;
-using System.Collections.Generic;
-using System.IO;
 using System;
 using System.Collections;
 using System.Runtime.InteropServices;
@@ -47,14 +45,14 @@ public class AkMemBankLoader : MonoBehaviour
 	/// Load a sound bank from WWW object 
 	public void LoadNonLocalizedBank(string in_bankFilename)
 	{
-        string bankPath = "file://" + Path.Combine(AkBasePathGetter.GetPlatformBasePath(), in_bankFilename);
+        string bankPath = "file://" + System.IO.Path.Combine(AkBasePathGetter.GetPlatformBasePath(), in_bankFilename);
 		DoLoadBank(bankPath);
 	}
 	
 	/// Load a language-specific bank from WWW object
 	public void LoadLocalizedBank(string in_bankFilename)
 	{
-        string bankPath = "file://" + Path.Combine(Path.Combine(AkBasePathGetter.GetPlatformBasePath(), AkInitializer.GetCurrentLanguage()), in_bankFilename);
+        string bankPath = "file://" + System.IO.Path.Combine(System.IO.Path.Combine(AkBasePathGetter.GetPlatformBasePath(), AkInitializer.GetCurrentLanguage()), in_bankFilename);
 		DoLoadBank(bankPath);
 	}
 

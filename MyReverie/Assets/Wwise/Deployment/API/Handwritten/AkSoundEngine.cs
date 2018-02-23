@@ -10,19 +10,6 @@ using System;
 
 public partial class AkSoundEngine
 {
-	#region WwiseMigration
-	public static AKRESULT SetObjectPosition(UnityEngine.GameObject in_gameObject, float PosX, float PosY, float PosZ, float FrontX, float FrontY, float FrontZ)
-	{
-		throw new NotImplementedException("SetObjectPosition now requires a top vector. Please change your scripts to use the SetObjectPosition overload that specifies the top vector.");
-	}
-
-	// AK::SoundEngine::AddSecondaryOutput(AkUInt32,AkAudioOutputType,const AkGameObjectID *,AkUInt32,AkUInt32,AkUniqueID);
-	public static AKRESULT AddSecondaryOutput() //TODO
-	{
-		return AKRESULT.AK_Success;
-	}
-	#endregion
-
 	#region String Marshalling
 	/// <summary>
 	/// Converts "char*" C-strings to C# strings.
@@ -112,6 +99,28 @@ public partial class AkSoundEngine
 		var res = (AKRESULT)AkSoundEnginePINVOKE.CSharp_UnregisterGameObjInternal(id);
 		PostUnregisterGameObjUserHook(res, gameObject, id);
 		return res;
+	}
+	#endregion
+
+	#region Helper Functions
+	public static AKRESULT SetObjectPosition(UnityEngine.GameObject gameObject, UnityEngine.Transform transform)
+	{
+		var id = GetAkGameObjectID(gameObject);
+
+		return (AKRESULT)AkSoundEnginePINVOKE.CSharp_SetObjectPosition(id, 
+			transform.position.x, transform.position.y, transform.position.z,
+			transform.forward.x, transform.forward.y, transform.forward.z,
+			transform.up.x, transform.up.y, transform.up.z);
+	}
+
+	public static AKRESULT SetObjectPosition(UnityEngine.GameObject gameObject, UnityEngine.Vector3 position, UnityEngine.Vector3 forward, UnityEngine.Vector3 up)
+	{
+		var id = GetAkGameObjectID(gameObject);
+
+		return (AKRESULT)AkSoundEnginePINVOKE.CSharp_SetObjectPosition(id,
+			position.x, position.y, position.z,
+			forward.x, forward.y, forward.z,
+			up.x, up.y, up.z);
 	}
 	#endregion
 

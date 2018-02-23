@@ -20,10 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4334020588761872}
   - component: {fileID: 114169451756656884}
-  - component: {fileID: 114991141978462562}
   - component: {fileID: 114149409129113206}
   - component: {fileID: 114461858232764598}
-  - component: {fileID: 114923255180372482}
   - component: {fileID: 114596263571520550}
   - component: {fileID: 114347074291447534}
   - component: {fileID: 114234975487505258}
@@ -170,44 +168,6 @@ MonoBehaviour:
   useOtherObject: 0
   valueGuid: 5526d29eeff8d94a92cf1029fc3259ce
   bankName: Collect
-  loadAsynchronous: 0
-  decodeBank: 0
-  saveDecodedBank: 0
-  unloadTriggerList: 
---- !u!114 &114923255180372482
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1549460897198814}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9efa7205f6bfb40ef9b302a035b0e6b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerList: f7e1664c
-  useOtherObject: 0
-  valueGuid: fedaa994de0807419ffd1b73f5a9cbc1
-  bankName: Current
-  loadAsynchronous: 0
-  decodeBank: 0
-  saveDecodedBank: 0
-  unloadTriggerList: 
---- !u!114 &114991141978462562
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1549460897198814}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9efa7205f6bfb40ef9b302a035b0e6b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerList: f7e1664c
-  useOtherObject: 0
-  valueGuid: 315f3e33cac86a4f90a50fa8f20adad4
-  bankName: Background
   loadAsynchronous: 0
   decodeBank: 0
   saveDecodedBank: 0

@@ -152,7 +152,7 @@ public class AkGameObjectInspector : Editor
 			GUIStyle style = new GUIStyle();
 			style.normal.textColor = Color.red;
 			style.wordWrap = true;
-			GUILayout.Label("AkGameObj-AkEnvironment interactions require a Rigidbody component on the object or the environment.", style);
+			GUILayout.Label("Interactions between AkGameObj and AkEnvironment or AkRoom require a Rigidbody component on the object or the environment/room.", style);
 			if (GUILayout.Button("Add Rigidbody"))
 			{
 				Rigidbody rb = Undo.AddComponent<Rigidbody>(gameObject);

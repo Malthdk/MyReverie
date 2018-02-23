@@ -17,9 +17,9 @@ namespace AK.Wwise
 
 		protected uint GetID() { return (uint)ID; }
 
-		protected virtual bool IsValid()
+		public virtual bool IsValid()
 		{
-			return ID != 0;
+			return ID != AkSoundEngine.AK_INVALID_UNIQUE_ID;
 		}
 
 		public bool Validate()
@@ -34,7 +34,7 @@ namespace AK.Wwise
 		protected void Verify(AKRESULT result)
 		{
 #if UNITY_EDITOR
-			if (result != AKRESULT.AK_Success)
+			if (result != AKRESULT.AK_Success && AkSoundEngine.IsInitialized())
 				Debug.LogWarning("Unsuccessful call made on " + GetType().Name + ".");
 #endif
 		}
@@ -52,7 +52,7 @@ namespace AK.Wwise
 
 		protected uint GetGroupID() { return (uint)groupID; }
 
-		protected override bool IsValid() { return base.IsValid() && groupID != 0; }
+		public override bool IsValid() { return base.IsValid() && groupID != 0; }
 	}
 
 	[Serializable]
@@ -63,19 +63,19 @@ namespace AK.Wwise
 	}
 
 	[Serializable]
-	///@brief This type can be used to post events to the sound engine.
+	///@brief This type can be used to post Events to the sound engine.
 	public class Event : BaseType
 	{
 		private void VerifyPlayingID(uint playingId)
 		{
 #if UNITY_EDITOR
-			if (playingId == AkSoundEngine.AK_INVALID_PLAYING_ID)
+			if (playingId == AkSoundEngine.AK_INVALID_PLAYING_ID && AkSoundEngine.IsInitialized())
 				Debug.LogError("Could not post event ID \"" + GetID() + "\". Did you make sure to load the appropriate SoundBank?");
 #endif
 		}
 
 		/// <summary>
-		/// Posts this event on a gameobject.
+		/// Posts this Event on a GameObject.
 		/// </summary>
 		/// <param name="gameObject">The GameObject</param>
 		/// <returns>Returns the playing ID.</returns>
@@ -90,7 +90,7 @@ namespace AK.Wwise
 		}
 
 		/// <summary>
-		/// Posts this event on a gameobject.
+		/// Posts this Event on a GameObject.
 		/// </summary>
 		/// <param name="gameObject">The GameObject</param>
 		/// <param name="flags"></param>
@@ -108,7 +108,7 @@ namespace AK.Wwise
 		}
 
 		/// <summary>
-		/// Posts this event on a gameobject.
+		/// Posts this Event on a GameObject.
 		/// </summary>
 		/// <param name="gameObject">The GameObject</param>
 		/// <param name="flags"></param>
@@ -131,7 +131,7 @@ namespace AK.Wwise
 		}
 
 		/// <summary>
-		/// Executes various actions on this event associated with a gameobject.
+		/// Executes various actions on this event associated with a GameObject.
 		/// </summary>
 		/// <param name="gameObject">The GameObject</param>
 		/// <param name="actionOnEventType"></param>
@@ -144,6 +144,48 @@ namespace AK.Wwise
 				AKRESULT result = AkSoundEngine.ExecuteActionOnEvent(GetID(), actionOnEventType, gameObject, transitionDuration, curveInterpolation);
 				Verify(result);
 			}
+		}
+
+		/// <summary>
+		/// Posts MIDI Events on this Event associated with a GameObject.
+		/// </summary>
+		/// <param name="gameObject">The GameObject</param>
+		/// <param name="array">The array of AkMIDIPost that are posted.</param>
+		public void PostMIDI(GameObject gameObject, AkMIDIPostArray array)
+		{
+			if (IsValid())
+				array.PostOnEvent(GetID(), gameObject);
+		}
+
+		/// <summary>
+		/// Posts MIDI Events on this Event associated with a GameObject.
+		/// </summary>
+		/// <param name="gameObject">The GameObject</param>
+		/// <param name="array">The array of AkMIDIPost that are posted.</param>
+		/// <param name="count">The number of elements from the array that will be posted.</param>
+		public void PostMIDI(GameObject gameObject, AkMIDIPostArray array, int count)
+		{
+			if (IsValid())
+				array.PostOnEvent(GetID(), gameObject, count);
+		}
+
+		/// <summary>
+		/// Stops MIDI Events on this Event associated with a GameObject.
+		/// </summary>
+		/// <param name="gameObject">The GameObject</param>
+		public void StopMIDI(GameObject gameObject)
+		{
+			if (IsValid())
+				AkSoundEngine.StopMIDIOnEvent(GetID(), gameObject);
+		}
+
+		/// <summary>
+		/// Stops all MIDI Events on this Event.
+		/// </summary>
+		public void StopMIDI()
+		{
+			if (IsValid())
+				AkSoundEngine.StopMIDIOnEvent(GetID());
 		}
 	}
 
@@ -170,7 +212,7 @@ namespace AK.Wwise
 		}
 	}
 
-	[Serializable]
+    [Serializable]
 	///@brief This type can be used to post triggers to the sound engine.
 	public class Trigger : BaseType
 	{
@@ -185,7 +227,7 @@ namespace AK.Wwise
 	}
 
 	[Serializable]
-	///@brief This type can be used to set Wwise states.
+	///@brief This type can be used to set Wwise States.
 	public class State : BaseGroupType
 	{
 		public void SetValue()
@@ -199,7 +241,7 @@ namespace AK.Wwise
 	}
 
 	[Serializable]
-	///@brief This type can be used to set switch values on gameobjects.
+	///@brief This type can be used to set Switch values on gameobjects.
 	public class Switch : BaseGroupType
 	{
 		public void SetValue(GameObject gameObject)
@@ -213,13 +255,13 @@ namespace AK.Wwise
 	}
 
 	[Serializable]
-	///@brief This type represents an auxiliary send in the master-mixer hierarchy.
+	///@brief This type represents an auxiliary send in the Master-Mixer Hierarchy.
 	public class AuxBus : BaseType
 	{
 	}
 
 	[Serializable]
-	///@brief This type can be used to load/unload soundbanks.
+	///@brief This type can be used to load/unload SoundBanks.
 	public class Bank : BaseType
 	{
 		public string name;
@@ -242,7 +284,13 @@ namespace AK.Wwise
 				AkBankManager.UnloadBank(name);
 		}
 
-		protected override bool IsValid() { return name.Length != 0 || base.IsValid(); }
+		public override bool IsValid() { return name.Length != 0 || base.IsValid(); }
 	}
+
+    [Serializable]
+    ///@brief This type represents an Acoustic Texture.
+    public class AcousticTexture : BaseType
+    {
+    }
 }
 #endif // #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.

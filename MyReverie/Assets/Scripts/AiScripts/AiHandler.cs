@@ -27,6 +27,7 @@ public class AiHandler : MonoBehaviour {
 	public AiTurncoat turncoatScript;
 	private Color startColor;
 	private Animator anim;
+	private bool incapacitated;
 
 	void Awake () 
 	{
@@ -73,7 +74,6 @@ public class AiHandler : MonoBehaviour {
 
 	void Update () 
 	{
-
 		switch(behaviour)
 		{
 		case AiBehaviour.Patrol:
@@ -96,10 +96,11 @@ public class AiHandler : MonoBehaviour {
 				Debug.Log ("HIT");
 			}
 			break;
-
 		case AiBehaviour.Incapacitated:
-			patrollingScript.isPatrolling = false;
-			StartCoroutine("Incapacitate");
+			if (!incapacitated) {
+				patrollingScript.isPatrolling = false;
+				StartCoroutine("Incapacitate");
+			}
 			break;
 		}
 	}
@@ -164,12 +165,14 @@ public class AiHandler : MonoBehaviour {
 		Vector3 scaleDown = originalSize;
 		scaleDown.y = 0.5f;
 		transform.localScale = scaleDown;*/
+		AkSoundEngine.PostEvent ("HatmanJump", gameObject);
 		anim.SetBool ("incapacitated", true);
-		Debug.Log("scaling");
+		incapacitated = true;
 		yield return new WaitForSeconds(incapacitateTime);
 		//transform.localScale = originalSize;
 		behaviour = AiBehaviour.Patrol;
 		anim.SetBool ("incapacitated", false);
+		incapacitated = false;
 		StopCoroutine("Incapacitate");
 	}
 }

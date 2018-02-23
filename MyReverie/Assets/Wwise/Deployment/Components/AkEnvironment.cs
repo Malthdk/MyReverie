@@ -18,6 +18,7 @@ using System.Collections.Generic;
 /// - \ref unity_use_AkEvironment_AkEvironmentPortal
 /// - <a href="https://www.audiokinetic.com/library/edge/?source=SDK&id=integrating__elements__environments.html" target="_blank">Integrating Environments and Game-defined Auxiliary Sends</a> (Note: This is described in the Wwise SDK documentation.)
 /// - <a href="https://www.audiokinetic.com/library/edge/?source=SDK&id=namespace_a_k_1_1_sound_engine_a18f56e8e0e881c4efb9080545efbb233.html#a18f56e8e0e881c4efb9080545efbb233" target="_blank">AK::SoundEngine::SetGameObjectAuxSendValues</a> (Note: This is described in the Wwise SDK documentation.)
+[ExecuteInEditMode]
 public class AkEnvironment : MonoBehaviour
 {
 	public const int MAX_NB_ENVIRONMENTS = 4;

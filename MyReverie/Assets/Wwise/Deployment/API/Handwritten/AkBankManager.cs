@@ -76,7 +76,7 @@ public static class AkBankManager
 
 		protected void LogLoadResult(AKRESULT result)
 		{
-			if (result != AKRESULT.AK_Success)
+			if (result != AKRESULT.AK_Success && AkSoundEngine.IsInitialized())
 				Debug.LogWarning("WwiseUnity: Bank " + bankName + " failed to load (" + result.ToString() + ")");
 		}
 	}
@@ -127,14 +127,14 @@ public static class AkBankManager
 
 			// test language-specific decoded file path
 			var language = AkInitializer.GetCurrentLanguage();
-			decodedBankPath = System.IO.Path.Combine(AkInitializer.GetDecodedBankFullPath(), language);
+			decodedBankPath = System.IO.Path.Combine(AkSoundEngineController.GetDecodedBankFullPath(), language);
 			var decodedBankFilePath = System.IO.Path.Combine(decodedBankPath, bankFileName);
 
 			bool decodedFileExists = System.IO.File.Exists(decodedBankFilePath);
 			if (!decodedFileExists)
 			{
 				// test non-language-specific decoded file path
-				decodedBankPath = AkInitializer.GetDecodedBankFullPath();
+				decodedBankPath = AkSoundEngineController.GetDecodedBankFullPath();
 				decodedBankFilePath = System.IO.Path.Combine(decodedBankPath, bankFileName);
 				decodedFileExists = System.IO.File.Exists(decodedBankFilePath);
 			}
@@ -183,7 +183,7 @@ public static class AkBankManager
 		public override void UnloadBank()
 		{
 			if (decodeBank && !saveDecodedBank)
-				AkSoundEngine.PrepareBank(PreparationType.Preparation_Unload, m_BankID);
+				AkSoundEngine.PrepareBank(AkPreparationType.Preparation_Unload, m_BankID);
 			else
 				base.UnloadBank();
 		}

@@ -16,8 +16,8 @@ MonoBehaviour:
   - PhysicalPath: Events/Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{01CDA8BC-683A-4288-9AA3-966B9C775560}'
-    m_lastTimePsrt1: 1714260224
-    m_lastTimePart2: -1999298892
+    m_lastTimePsrt1: -1971129088
+    m_lastTimePart2: -1999278571
     List:
     - Name: Background
       Path: Default Work Unit/Background
@@ -28,6 +28,8 @@ MonoBehaviour:
         ObjectType: 3
       ID: -644243327
       Guid: 37f413d129e36345ab770be4df8b91c1
+      minDuration: 0
+      maxDuration: 0
       maxAttenuation: 0
     - Name: Collect
       Path: Default Work Unit/Collect
@@ -38,6 +40,8 @@ MonoBehaviour:
         ObjectType: 3
       ID: -1538633591
       Guid: 68852b43e2175340a5e6e89b6a243f9d
+      minDuration: 0
+      maxDuration: 0
       maxAttenuation: 0
     - Name: Current
       Path: Default Work Unit/Current
@@ -48,6 +52,8 @@ MonoBehaviour:
         ObjectType: 3
       ID: 2037989808
       Guid: 74f043356abb9349b79ae13beb89008f
+      minDuration: 0
+      maxDuration: 0
       maxAttenuation: 10
     - Name: Die
       Path: Default Work Unit/Die
@@ -58,6 +64,8 @@ MonoBehaviour:
         ObjectType: 3
       ID: 445985469
       Guid: 014ecec09ecc044784df483d629c4153
+      minDuration: 0
+      maxDuration: 0
       maxAttenuation: 0
     - Name: EndLevel
       Path: Default Work Unit/EndLevel
@@ -68,6 +76,20 @@ MonoBehaviour:
         ObjectType: 3
       ID: 1054659462
       Guid: 24b4d4cb7a7e9447a2cbdbac3eda4de5
+      minDuration: 0
+      maxDuration: 0
+      maxAttenuation: 0
+    - Name: HatmanJump
+      Path: Default Work Unit/HatmanJump
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: HatmanJump
+        ObjectType: 3
+      ID: -1398089304
+      Guid: 1606e350312b1c42a90704e174da0f54
+      minDuration: 0
+      maxDuration: 0
       maxAttenuation: 0
     - Name: Jump
       Path: Default Work Unit/Jump
@@ -78,6 +100,8 @@ MonoBehaviour:
         ObjectType: 3
       ID: -461315959
       Guid: 8a2946e001979d47aa4d223a4e770f74
+      minDuration: 0
+      maxDuration: 0
       maxAttenuation: 0
     - Name: Transition
       Path: Default Work Unit/Transition
@@ -88,20 +112,22 @@ MonoBehaviour:
         ObjectType: 3
       ID: 1865857008
       Guid: e7ffbc9c2304804eb660752c5efb98a4
+      minDuration: 0
+      maxDuration: 0
       maxAttenuation: 0
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy/Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{E8BFF538-8809-493D-BC5C-CE75014682BB}'
-    m_lastTimePsrt1: 1771531136
-    m_lastTimePart2: -1999306314
+    m_lastTimePsrt1: -2101259904
+    m_lastTimePart2: -1999278575
     List: []
   StateWwu:
   - PhysicalPath: States/Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{FC8FF586-0497-4AE5-B3C6-EA7788C13D41}'
-    m_lastTimePsrt1: 1771531136
-    m_lastTimePart2: -1999306314
+    m_lastTimePsrt1: -2101259904
+    m_lastTimePart2: -1999278575
     List:
     - Name: New_State_Group
       Path: Default Work Unit/New_State_Group
@@ -124,15 +150,15 @@ MonoBehaviour:
   - PhysicalPath: Switches/Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{695B9CF0-78A2-44F1-A006-A73F1CC55A79}'
-    m_lastTimePsrt1: 1771531136
-    m_lastTimePart2: -1999306314
+    m_lastTimePsrt1: -2101259904
+    m_lastTimePart2: -1999278575
     List: []
   BankWwu:
   - PhysicalPath: SoundBanks/Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{CCB9A063-7B9E-4F52-8BFF-4C57C0EF60C4}'
-    m_lastTimePsrt1: 1250493440
-    m_lastTimePart2: -1999303288
+    m_lastTimePsrt1: -1971129088
+    m_lastTimePart2: -1999278571
     List:
     - Name: Background
       Path: Default Work Unit/Background
@@ -179,6 +205,15 @@ MonoBehaviour:
         ObjectType: 7
       ID: 1054659462
       Guid: f661ac78f07a2b4d96dca646d171f5ee
+    - Name: HatmanJump
+      Path: Default Work Unit/HatmanJump
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: HatmanJump
+        ObjectType: 7
+      ID: -1398089304
+      Guid: fef5c139541b0d47b672ebc60855f58c
     - Name: Jump
       Path: Default Work Unit/Jump
       PathAndIcons:
@@ -201,8 +236,8 @@ MonoBehaviour:
   - PhysicalPath: Game Parameters/Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{1708337D-CC8F-43F0-89D4-6CCD0832E3A7}'
-    m_lastTimePsrt1: 1771531136
-    m_lastTimePart2: -1999306314
+    m_lastTimePsrt1: -2101259904
+    m_lastTimePart2: -1999278575
     List:
     - Name: Pitch
       Path: Default Work Unit/Pitch
@@ -217,11 +252,20 @@ MonoBehaviour:
   - PhysicalPath: Triggers/Default Work Unit.wwu
     ParentPhysicalPath: 
     Guid: '{1C45F006-F0C7-4C30-8A7E-EDF43C757F0F}'
-    m_lastTimePsrt1: 1771531136
-    m_lastTimePart2: -1999306314
+    m_lastTimePsrt1: -2101259904
+    m_lastTimePart2: -1999278575
+    List: []
+  AcousticTextureWwu:
+  - PhysicalPath: Virtual Acoustics/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    Guid: '{76B3DDF6-D989-4715-9B2E-CC0AB76DDBBC}'
+    m_lastTimePsrt1: -2101259904
+    m_lastTimePart2: -1999278575
     List: []
   ExpandedItems:
   - /LineAudio
+  - /LineAudio/Events
+  - /LineAudio/Events/Default Work Unit
   m_lastPopulateTimePsrt1: 0
   m_lastPopulateTimePart2: 0
   autoPopulateEnabled: 1

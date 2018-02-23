@@ -23,8 +23,10 @@ public class AkEventCallbackMsg
 
 [AddComponentMenu("Wwise/AkEvent")]
 [RequireComponent(typeof(AkGameObj))]
-/// @brief Helper class that knows a Wwise Event and when to trigger it in Unity.
+/// @brief Helper class that knows a Wwise Event and when to trigger it in Unity. As of 2017.2.0, the AkEvent inspector has buttons for play/stop, play multiple, stop multiple, and stop all.
+/// Play/Stop will play or stop the event such that it can be previewed both in edit mode and play mode. When multiple objects are selected, Play Multiple and Stop Multiple will play or stop the associated AkEvent for each object.
 /// \sa
+/// - \ref sect_edit_mode
 /// - \ref unity_use_AkEvent_AkAmbient
 /// - <a href="https://www.audiokinetic.com/library/edge/?source=SDK&id=soundengine__events.html" target="_blank">Integration Details - Events</a> (Note: This is described in the Wwise SDK documentation.)
 public class AkEvent : AkUnityEventHandler 
@@ -80,10 +82,8 @@ public class AkEvent : AkUnityEventHandler
         else
             playingId = AkSoundEngine.PostEvent((uint)eventID, gameObj);
 
-        if (playingId == AkSoundEngine.AK_INVALID_PLAYING_ID)
-        {
+        if (playingId == AkSoundEngine.AK_INVALID_PLAYING_ID && AkSoundEngine.IsInitialized())
             Debug.LogError("Could not post event ID \"" + eventID + "\". Did you make sure to load the appropriate SoundBank?");
-        }
     }
 
     public void Stop(int _transitionDuration, AkCurveInterpolation _curveInterpolation = AkCurveInterpolation.AkCurveInterpolation_Linear)

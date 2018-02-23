@@ -65,7 +65,7 @@ public class AkBankInspector : AkBaseInspector
                 EditorGUILayout.PropertyField(saveDecoded, new GUIContent("Save decoded bank:"));
                 if (oldSaveDecodedValue == true && saveDecoded.boolValue == false)
                 {
-                    string decodedBankPath = System.IO.Path.Combine(AkInitializer.GetDecodedBankFullPath(), bankName.stringValue + ".bnk");
+                    string decodedBankPath = System.IO.Path.Combine(AkSoundEngineController.GetDecodedBankFullPath(), bankName.stringValue + ".bnk");
 					try
 					{
 						System.IO.File.Delete(decodedBankPath);

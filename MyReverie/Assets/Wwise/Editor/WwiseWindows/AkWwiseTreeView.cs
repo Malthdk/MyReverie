@@ -222,6 +222,7 @@ public class AkWwiseTreeView : TreeViewControl
 			DDData.typeName = objType;
 
 			objectReferences[0] = DragDropHelperMonoScript;
+			GUIUtility.hotControl = 0;
 			DragAndDrop.objectReferences = objectReferences;
 			DragAndDrop.SetGenericData(AkDragDropHelper.DragDropIdentifier, DDData);
 			DragAndDrop.StartDrag("Dragging an AkObject");
@@ -255,6 +256,9 @@ public class AkWwiseTreeView : TreeViewControl
             case AkWwiseProjectData.WwiseObjectType.GAMEPARAMETER:
                 type = "GameParameter";
                 break;
+            case AkWwiseProjectData.WwiseObjectType.ACOUSTICTEXTURE:
+                type = "AcousticTexture";
+                break;
         }
 
         return type;
@@ -286,7 +290,8 @@ public class AkWwiseTreeView : TreeViewControl
                 break;
             case AkWwiseProjectData.WwiseObjectType.EVENT:
             case AkWwiseProjectData.WwiseObjectType.GAMEPARAMETER:
-				ShowButtonTextureInternal(m_textureWwiseEventIcon);
+            case AkWwiseProjectData.WwiseObjectType.ACOUSTICTEXTURE:
+                ShowButtonTextureInternal(m_textureWwiseEventIcon);
                 break;
             case AkWwiseProjectData.WwiseObjectType.FOLDER:
 				ShowButtonTextureInternal(m_textureWwiseFolderIcon);

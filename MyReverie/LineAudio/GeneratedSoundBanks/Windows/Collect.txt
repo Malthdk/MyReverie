@@ -2,6 +2,6 @@ Event	ID	Name			Wwise Object Path	Notes
 	2756333705	Collect			\Default Work Unit\Collect	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	164889978	pop	Y:\Documents\LineMan\LineAudio\.cache\Windows\SFX\pop_D3EA11B9.wem		\Actor-Mixer Hierarchy\Default Work Unit\pop		236724
-	562559105	collect	Y:\Documents\LineMan\LineAudio\.cache\Windows\SFX\collect_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\collect		673112
+	164889978	pop	Y:\Documents\MyReverie\MyReverie\LineAudio\.cache\Windows\SFX\pop_D3EA11B9.wem		\Actor-Mixer Hierarchy\Default Work Unit\pop		236724
+	562559105	collect	Y:\Documents\MyReverie\MyReverie\LineAudio\.cache\Windows\SFX\collect_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\collect		673112
 

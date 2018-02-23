@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{01CDA8BC-683A-4288-9AA3-966B9C775560}" SchemaVersion="80">
+<WwiseDocument Type="WorkUnit" ID="{01CDA8BC-683A-4288-9AA3-966B9C775560}" SchemaVersion="85">
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{01CDA8BC-683A-4288-9AA3-966B9C775560}" PersistMode="Standalone">
 			<ChildrenList>
@@ -107,6 +107,20 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="end" ID="{0DC2867A-7A47-4A0E-BBDC-B5D23A1BDA1E}" WorkUnitID="{4CD3DFF6-5F8B-47ED-8C9F-21B409724EB4}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="HatmanJump" ID="{50E30616-2B31-421C-A907-04E174DA0F54}">
+					<ChildrenList>
+						<Action Name="" ID="{201EA0D5-F877-4023-A5E8-896F92D95F99}" ShortID="1010521956">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="pluck" ID="{01990A07-F956-4FCC-9AF0-190129B69D91}" WorkUnitID="{4CD3DFF6-5F8B-47ED-8C9F-21B409724EB4}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

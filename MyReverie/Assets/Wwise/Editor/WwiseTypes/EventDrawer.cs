@@ -16,19 +16,22 @@ namespace AK.Wwise.Editor
 
 				if (element != null)
 				{
-					ID.intValue = element.ID;
+					m_IDProperty[0].intValue = element.ID;
 					return element.Name;
 				}
 			}
 
-			ID.intValue = 0;
+			m_IDProperty[0].intValue = 0;
 			return string.Empty;
 		}
 
 		public override void SetupSerializedProperties(SerializedProperty property)
 		{
 			m_objectType = AkWwiseProjectData.WwiseObjectType.EVENT;
-			m_typeName = "Event";
+            m_typeName = "Event";
+
+			m_IDProperty = new SerializedProperty[1];
+			m_IDProperty[0] = property.FindPropertyRelative("ID");
 
 			m_guidProperty = new SerializedProperty[1];
 			m_guidProperty[0] = property.FindPropertyRelative("valueGuid.Array");

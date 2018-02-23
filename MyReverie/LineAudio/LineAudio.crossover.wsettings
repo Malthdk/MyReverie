@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="UserProjectSettings" SchemaVersion="80">
+<WwiseDocument Type="UserProjectSettings" SchemaVersion="85">
 	<UserProjectSettingsInfo>
 		<UserProjectSettings Name="" ID="{A2F8A7D8-1CA5-4B98-B2B4-76907667D4A4}">
 			<PropertyList>
 				<Property Name="AudioFilesImporter\Path" Type="string" Value="Y:\Desktop"/>
 				<Property Name="Event Action List\{3543F074-BB6A-4993-B79A-E13BEB89008F}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{432B8568-17E2-4053-A5E6-E89B6A243F9D}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{50E30616-2B31-421C-A907-04E174DA0F54}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{9CBCFFE7-0423-4E80-B660-752C5EFB98A4}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{B166C956-A32D-48CC-B187-477806051209}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{C0CE4E01-CC9E-4704-84DF-483D629C4153}\x64_Expand States" Type="string" Value=""/>
@@ -27,9 +28,10 @@
 				</Property>
 				<Property Name="General\LatestLanguage" Type="int32" Value="684519430"/>
 				<Property Name="General\LatestPlatform" Type="string" Value="Mac"/>
+				<Property Name="General\SourceControlPluginID" Type="string" Value="{C403A906-0C19-4ED5-808E-748707065301}"/>
 				<Property Name="GenerateSoundBanks\x64_SelectedLanguages" Type="string" Value="BvDMKA=="/>
 				<Property Name="GenerateSoundBanks\x64_SelectedPlatforms" Type="string" Value="VVMiYn5xDE63l5dKaLIgnUwq97k3t55BqdKE6Uv8fb4="/>
-				<Property Name="GenerateSoundBanks\x64_SelectedSoundBanks" Type="string" Value="MV8+M8rIak+QpQ+o8gra1FUm0p7v+NlKks8QKfwyWc7+2qmU3ggHQZ/9G3P1qcvBzuqusirAgkKcNqhJFhuo2/ZhrHjweitNltymRtFx9e6LuB8gaX08QrHSobW1xAIQ2jbuAgzA/0K3ikSQoz4FLQ=="/>
+				<Property Name="GenerateSoundBanks\x64_SelectedSoundBanks" Type="string" Value="MV8+M8rIak+QpQ+o8gra1FUm0p7v+NlKks8QKfwyWc7+2qmU3ggHQZ/9G3P1qcvBzuqusirAgkKcNqhJFhuo2/ZhrHjweitNltymRtFx9e7+9cE5VBsNR7Zy68YIVfWMi7gfIGl9PEKx0qG1tcQCENo27gIMwP9Ct4pEkKM+BS0="/>
 				<Property Name="HardwareController\CurrentSession" Type="string" Value="{00000000-0000-0000-0000-000000000000}"/>
 				<Property Name="MeterView\LastObject1" Type="string" Value="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"/>
 				<Property Name="MeterView\MeterMode1" Type="int32" Value="1"/>

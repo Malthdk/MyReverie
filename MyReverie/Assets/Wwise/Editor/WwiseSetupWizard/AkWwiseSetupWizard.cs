@@ -5,7 +5,6 @@ using UnityEditor;
 using UnityEditor.Callbacks;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
@@ -27,11 +26,6 @@ public class WwiseSetupWizard
     }
 
     public static void RunModify()
-    {
-        EditorApplication.delayCall += RunModifyImpl;
-    }
-
-    private static void RunModifyImpl()
     {
         try
         {
@@ -56,11 +50,6 @@ public class WwiseSetupWizard
 
     public static void RunSetup()
     {
-        EditorApplication.delayCall += RunSetupImpl;
-    }
-    
-    private static void RunSetupImpl()
-    {
         try
         {
             Debug.Log("WwiseUnity: Running install setup...");
@@ -83,11 +72,6 @@ public class WwiseSetupWizard
     }
 
     public static void RunDemoSceneSetup()
-    {
-        EditorApplication.delayCall += RunDemoSceneSetupImpl;
-    }
-
-    private static void RunDemoSceneSetupImpl()
     {
         try
         {
@@ -112,17 +96,12 @@ public class WwiseSetupWizard
         }
     }
     
-    public static void RunMigrate()
-    {
-        EditorApplication.delayCall += RunMigrateImpl;
-    }
-
     private static void UpdateProgressBar(float progress)
     {
         EditorUtility.DisplayProgressBar("Wwise Integration", "Migration in progress - Please wait...", progress);
     }
 
-    private static void RunMigrateImpl()
+    public static void RunMigrate()
     {
         try
         {
@@ -187,18 +166,18 @@ public class WwiseSetupWizard
         }
     }
 
-    private static void MigrateCurrentScene(FileInfo[] files, int migrateStart, int migrateStop)
+    private static void MigrateCurrentScene(System.IO.FileInfo[] files, int migrateStart, int migrateStop)
     {
 		var objectTypeMap = new Dictionary<Type, UnityEngine.Object[]>();
 
 		foreach (var file in files)
 		{
-			string className = Path.GetFileNameWithoutExtension(file.Name);
+			string className = System.IO.Path.GetFileNameWithoutExtension(file.Name);
 
 			// Since monobehaviour scripts need to have the same name as the class it contains, we can use it to get the type of the object.
 			Type objectType = Type.GetType(className + ", Assembly-CSharp");
 
-			if (objectType.IsSubclassOf(typeof(UnityEngine.Object)))
+			if (objectType != null && objectType.IsSubclassOf(typeof(UnityEngine.Object)))
 			{
 				// Get all objects in the scene with the specified type.
 				UnityEngine.Object[] objects = UnityEngine.Object.FindObjectsOfType(objectType);
@@ -255,14 +234,13 @@ public class WwiseSetupWizard
 
         AkPluginActivator.DeactivateAllPlugins();
         AkPluginActivator.Update();
-        AkPluginActivator.ActivatePlugins(AkPluginActivator.CONFIG_PROFILE, true);
+        AkPluginActivator.ActivatePluginsForEditor();
 
         // Get the name of the currently opened scene.
         string currentScene = AkSceneUtils.GetCurrentScene().Replace('/', '\\');
 
-        FileInfo[] files = new DirectoryInfo(Application.dataPath + "/Wwise/Deployment/Components").GetFiles("*.cs", SearchOption.AllDirectories);
-
-        FileInfo[] sceneInfo = new DirectoryInfo(Application.dataPath).GetFiles("*.unity", SearchOption.AllDirectories);
+        var files = new System.IO.DirectoryInfo(Application.dataPath + "/Wwise/Deployment/Components").GetFiles("*.cs", System.IO.SearchOption.AllDirectories);
+        var  sceneInfo = new System.IO.DirectoryInfo(Application.dataPath).GetFiles("*.unity", System.IO.SearchOption.AllDirectories);
         string[] scenes = new string[sceneInfo.Length];
 
         AkSceneUtils.CreateNewScene();
@@ -294,7 +272,7 @@ public class WwiseSetupWizard
         // TODO: Moving one folder up is not nice at all. How to find the current project path?
         try
         {
-            File.Delete(Application.dataPath + "/../.WwiseLauncherLockFile");
+			System.IO.File.Delete(Application.dataPath + "/../.WwiseLauncherLockFile");
         }
         catch (Exception)
         {
@@ -315,7 +293,7 @@ public class WwiseSetupWizard
 
         AkPluginActivator.DeactivateAllPlugins();
         AkPluginActivator.Update();
-        AkPluginActivator.ActivatePlugins(currentConfig, true);
+        AkPluginActivator.ActivatePluginsForEditor();
     }
 
     // Perform all necessary steps to use the Wwise Unity integration.
@@ -325,9 +303,9 @@ public class WwiseSetupWizard
 
         // 0. Make sure the soundbank directory exists
         string sbPath = AkUtilities.GetFullPath(Application.streamingAssetsPath, Settings.SoundbankPath);
-		if (!Directory.Exists(sbPath))
+		if (!System.IO.Directory.Exists(sbPath))
         {
-            Directory.CreateDirectory(sbPath);
+			System.IO.Directory.CreateDirectory(sbPath);
         }
 
 		// 1. Disable built-in audio
@@ -347,7 +325,7 @@ public class WwiseSetupWizard
         PlayerSettings.runInBackground = true;
 
         AkPluginActivator.Update();
-        AkPluginActivator.ActivatePlugins(AkPluginActivator.CONFIG_PROFILE, true);
+        AkPluginActivator.ActivatePluginsForEditor();
 
         // 9. Activate WwiseIDs file generation, and point Wwise to the Assets/Wwise folder
         // 10. Change the SoundBanks options so it adds Max Radius information in the Wwise project

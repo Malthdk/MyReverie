@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="125">
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="128">
 	<RootPaths>
-		<ProjectRoot>/Users/malteholledig/Library/Application Support/Wwise2017/Bottles/wwise/dosdevices/y:/Documents/LineMan/LineAudio/</ProjectRoot>
-		<SourceFilesRoot>/Users/malteholledig/Library/Application Support/Wwise2017/Bottles/wwise/dosdevices/y:/Documents/LineMan/LineAudio/.cache/Windows/</SourceFilesRoot>
-		<SoundBanksRoot>/Users/malteholledig/Library/Application Support/Wwise2017/Bottles/wwise/dosdevices/y:/Documents/LineMan/LineAudio/GeneratedSoundBanks/Windows/</SoundBanksRoot>
+		<ProjectRoot>/Users/malteholledig/Library/Application Support/Wwise2017/Bottles/wwise/dosdevices/y:/Documents/MyReverie/MyReverie/LineAudio/</ProjectRoot>
+		<SourceFilesRoot>/Users/malteholledig/Library/Application Support/Wwise2017/Bottles/wwise/dosdevices/y:/Documents/MyReverie/MyReverie/LineAudio/.cache/Windows/</SourceFilesRoot>
+		<SoundBanksRoot>/Users/malteholledig/Library/Application Support/Wwise2017/Bottles/wwise/dosdevices/y:/Documents/MyReverie/MyReverie/LineAudio/GeneratedSoundBanks/Windows/</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>/Users/malteholledig/Library/Application Support/Wwise2017/Bottles/wwise/dosdevices/y:/Documents/LineMan/LineAudio/GeneratedSoundBanks/Windows/</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>/Users/malteholledig/Library/Application Support/Wwise2017/Bottles/wwise/dosdevices/y:/Documents/MyReverie/MyReverie/LineAudio/GeneratedSoundBanks/Windows/</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
@@ -87,6 +87,20 @@
 				<File Id="562559105" Language="SFX">
 					<ShortName>collect.wav</ShortName>
 					<Path>SFX/collect_1C9C67B2.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+		<SoundBank Id="2896877992" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\HatmanJump</ObjectPath>
+			<ShortName>HatmanJump</ShortName>
+			<Path>HatmanJump.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2896877992" Name="HatmanJump" ObjectPath="\Events\Default Work Unit\HatmanJump"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="732177843" Language="SFX">
+					<ShortName>pluck.wav</ShortName>
+					<Path>SFX/pluck_78BE9143.wem</Path>
 				</File>
 			</IncludedMemoryFiles>
 		</SoundBank>

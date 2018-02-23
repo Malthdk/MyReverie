@@ -71,11 +71,11 @@ public class AkGameObjEnvironmentData
 		if (!isDirty)
 			return;
 
-        auxSendValues.Reset();
-        AddHighestPriorityEnvironmentsFromPortals(position);
+		auxSendValues.Reset();
+		AddHighestPriorityEnvironmentsFromPortals(position);
 		AddHighestPriorityEnvironments(position);
 
-		AkSoundEngine.SetGameObjectAuxSendValues(gameObject, auxSendValues, (uint)auxSendValues.Count());
+		AkSoundEngine.SetEmitterAuxSendValues(gameObject, auxSendValues, (uint)auxSendValues.Count());
 		isDirty = false;
 	}
 

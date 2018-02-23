@@ -8,37 +8,18 @@ namespace AK.Wwise.Editor
 	public abstract class BaseTypeDrawer : PropertyDrawer
 	{
 		protected SerializedProperty[] m_guidProperty;  //all components have 1 guid except switches and states which have 2. Index zero is value guid and index 1 is group guid
-		protected SerializedProperty ID;
-
+		protected SerializedProperty[] m_IDProperty;  //all components have 1 ID except switches and states which have 2. Index zero is ID and index 1 is groupID
 		protected AkWwiseProjectData.WwiseObjectType m_objectType;
 		protected string m_typeName;
 
-		private static Rect s_pickerPos = new Rect();
-
-		private static Rect s_pressedPosition = new Rect();
-		private static bool s_buttonWasPressed = false;
-
-		private static SerializedObject s_serializedObject;
-		private static SerializedProperty[] s_guidProperty;
-		private static AkWwiseProjectData.WwiseObjectType s_objectType;
-
+		private Rect m_pickerPos = new Rect();
+		private Rect m_pressedPosition = new Rect();
+		private bool m_buttonWasPressed = false;
+		private SerializedObject m_serializedObject;
 
 		public abstract string UpdateIds(Guid[] in_guid);
 		public abstract void SetupSerializedProperties(SerializedProperty property);
 
-		// taken and modified from AkUtilities.GetLastRectAbsolute()
-		public static Rect GetLastRectAbsolute()
-		{
-			Type inspectorType = Assembly.GetAssembly(typeof(UnityEditor.Editor)).GetType("UnityEditor.InspectorWindow");
-
-			FieldInfo currentInspectorFieldInfo = inspectorType.GetField("s_CurrentInspectorWindow", BindingFlags.Public | BindingFlags.Static);
-			PropertyInfo positionPropInfo = inspectorType.GetProperty("position", BindingFlags.Public | BindingFlags.Instance);
-
-			Rect InspectorPosition = (Rect)positionPropInfo.GetValue(currentInspectorFieldInfo.GetValue(null), null);
-
-			Rect absolutePos = new Rect(InspectorPosition.x, InspectorPosition.y, InspectorPosition.width, 0);
-			return absolutePos;
-		}
 
 		private AkDragDropData GetAkDragDropData()
 		{
@@ -70,10 +51,16 @@ namespace AK.Wwise.Editor
 						if (DDData != null)
 						{
 							AkUtilities.SetByteArrayProperty(m_guidProperty[0], DDData.guid.ToByteArray());
+							m_IDProperty[0].intValue = DDData.ID;
 
 							AkDragDropGroupData DDGroupData = DDData as AkDragDropGroupData;
-							if (DDGroupData != null && m_guidProperty.Length > 1)
-								AkUtilities.SetByteArrayProperty(m_guidProperty[1], DDGroupData.groupGuid.ToByteArray());
+							if (DDGroupData != null)
+							{
+								if (m_guidProperty.Length > 1)
+									AkUtilities.SetByteArrayProperty(m_guidProperty[1], DDGroupData.groupGuid.ToByteArray());
+								if (m_IDProperty.Length > 1)
+									m_IDProperty[1].intValue = DDGroupData.groupID;
+							}
 
 							//needed for the undo operation to work
 							GUIUtility.hotControl = 0;
@@ -82,16 +69,21 @@ namespace AK.Wwise.Editor
 					currentEvent.Use();
 				}
 			}
-		}
+        }
 
-		public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        protected virtual void SetEmptyComponentName(ref string componentName, ref GUIStyle style)
+        {
+            componentName = "No " + m_typeName + " is currently selected";
+            style.normal.textColor = Color.red;
+        }
+
+        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
 		{
 			// Using BeginProperty / EndProperty on the parent property means that
 			// prefab override logic works on the entire property.
 			EditorGUI.BeginProperty(position, label, property);
 
 			SetupSerializedProperties(property);
-			ID = property.FindPropertyRelative("ID");
 
 			// Draw label
 			position = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), label);
@@ -113,16 +105,15 @@ namespace AK.Wwise.Editor
 			style.alignment = TextAnchor.MiddleLeft;
 			style.fontStyle = FontStyle.Normal;
 
-			if (componentName.Equals(String.Empty))
+			if (string.IsNullOrEmpty(componentName))
 			{
-				componentName = "No " + m_typeName + " is currently selected";
-				style.normal.textColor = Color.red;
-			}
+                SetEmptyComponentName(ref componentName, ref style);
+            }
 
 			if (GUI.Button(position, componentName, style))
 			{
-				s_pressedPosition = position;
-				s_buttonWasPressed = true;
+				m_pressedPosition = position;
+				m_buttonWasPressed = true;
 
 				// We don't want to set object as dirty only because we clicked the button.
 				// It will be set as dirty if the wwise object has been changed by the tree view.
@@ -131,18 +122,13 @@ namespace AK.Wwise.Editor
 
 			var currentEvent = UnityEngine.Event.current;
 
-			if (currentEvent.type == EventType.Repaint)
+			if (currentEvent.type == EventType.Repaint && m_buttonWasPressed && m_pressedPosition.Equals(position))
 			{
-				if (s_buttonWasPressed && s_pressedPosition.Equals(position))
-				{
-					s_serializedObject = property.serializedObject;
-					s_pickerPos = GetLastRectAbsolute();
-					s_guidProperty = m_guidProperty;
-					s_objectType = m_objectType;
+				m_serializedObject = property.serializedObject;
+				m_pickerPos = AkUtilities.GetLastRectAbsolute(false);
 
-					EditorApplication.delayCall += DelayCreateCall;
-					s_buttonWasPressed = false;
-				}
+				EditorApplication.delayCall += DelayCreateCall;
+				m_buttonWasPressed = false;
 			}
 
 			HandleDragAndDrop(currentEvent, position);
@@ -152,7 +138,7 @@ namespace AK.Wwise.Editor
 
 		private void DelayCreateCall()
 		{
-			AkWwiseComponentPicker.Create(s_objectType, s_guidProperty, s_serializedObject, s_pickerPos);
+			AkWwiseComponentPicker.Create(m_objectType, m_guidProperty, m_IDProperty, m_serializedObject, m_pickerPos);
 		}
 	}
 }

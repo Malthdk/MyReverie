@@ -5,5 +5,5 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	1908158473	Pitch			\Default Work Unit\Pitch	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	440305206	jump	Y:\Documents\LineMan\LineAudio\.cache\Windows\SFX\jump_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\jump		88044
+	440305206	jump	Y:\Documents\MyReverie\MyReverie\LineAudio\.cache\Windows\SFX\jump_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\jump		88044
 

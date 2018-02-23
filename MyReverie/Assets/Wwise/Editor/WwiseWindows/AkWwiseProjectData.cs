@@ -42,6 +42,8 @@ public class AkWwiseProjectData : ScriptableObject
     [Serializable]
     public class Event : AkInformation
     {
+        public float minDuration;
+        public float maxDuration;
         public float maxAttenuation;
     }
 
@@ -164,7 +166,8 @@ public class AkWwiseProjectData : ScriptableObject
         SWITCHGROUP,
         WORKUNIT,
         GAMEPARAMETER,
-        TRIGGER
+        TRIGGER,
+        ACOUSTICTEXTURE
     }
 
 	//Can't use a list of WorkUnit and cast it when needed because unity will serialize it as 
@@ -176,6 +179,7 @@ public class AkWwiseProjectData : ScriptableObject
 	public List<AkInfoWorkUnit>		BankWwu		= new List<AkInfoWorkUnit>();
 	public List<AkInfoWorkUnit>		RtpcWwu		= new List<AkInfoWorkUnit>();
     public List<AkInfoWorkUnit>     TriggerWwu  = new List<AkInfoWorkUnit>();
+    public List<AkInfoWorkUnit>     AcousticTextureWwu = new List<AkInfoWorkUnit>();
 
 	//Contains the path of all items that are expanded in the Wwise picker
 	public List<string> ExpandedItems = new List<string> ();
@@ -216,6 +220,10 @@ public class AkWwiseProjectData : ScriptableObject
         {
             return ArrayList.Adapter(TriggerWwu);
         }
+        else if (String.Equals(in_wwuType, "Virtual Acoustics", StringComparison.OrdinalIgnoreCase))
+        {
+            return ArrayList.Adapter(AcousticTextureWwu);
+        }
 
         return null;
     }
@@ -233,6 +241,7 @@ public class AkWwiseProjectData : ScriptableObject
 		else if(String.Equals(in_wwuType, "Master-Mixer Hierarchy", StringComparison.OrdinalIgnoreCase) 
             || String.Equals(in_wwuType, "SoundBanks", StringComparison.OrdinalIgnoreCase) 
             || String.Equals(in_wwuType, "Game Parameters", StringComparison.OrdinalIgnoreCase)
+            || String.Equals(in_wwuType, "Virtual Acoustics", StringComparison.OrdinalIgnoreCase)
             || String.Equals(in_wwuType, "Triggers", StringComparison.OrdinalIgnoreCase))
 		{
 			return new AkInfoWorkUnit();
@@ -268,6 +277,10 @@ public class AkWwiseProjectData : ScriptableObject
             return true;
         }
         else if (String.Equals(in_wwuType, "Triggers", StringComparison.OrdinalIgnoreCase))
+        {
+            return true;
+        }
+        else if (String.Equals(in_wwuType, "Virtual Acoustics", StringComparison.OrdinalIgnoreCase))
         {
             return true;
         }
@@ -393,14 +406,14 @@ public class AkWwiseProjectData : ScriptableObject
 	//This data is a copy of the AkInitializer parameters.  
 	//We need it to reapply the same values to copies of the object in different scenes
 	//It sits in this object so it is serialized in the same "asset" file
-	public string basePath = AkInitializer.c_DefaultBasePath;
-	public string language = AkInitializer.c_Language;
-	public int defaultPoolSize = AkInitializer.c_DefaultPoolSize;
-	public int lowerPoolSize = AkInitializer.c_LowerPoolSize;
-	public int streamingPoolSize = AkInitializer.c_StreamingPoolSize;
-	public int preparePoolSize = AkInitializer.c_PreparePoolSize;
-	public float memoryCutoffThreshold = AkInitializer.c_MemoryCutoffThreshold;
-	public int callbackManagerBufferSize = AkInitializer.c_CallbackManagerBufferSize;
+	public string basePath               = AkSoundEngineController.s_DefaultBasePath;
+	public string language               = AkSoundEngineController.s_Language;
+	public int defaultPoolSize           = AkSoundEngineController.s_DefaultPoolSize;
+	public int lowerPoolSize             = AkSoundEngineController.s_LowerPoolSize;
+	public int streamingPoolSize         = AkSoundEngineController.s_StreamingPoolSize;
+	public int preparePoolSize           = AkSoundEngineController.s_PreparePoolSize;
+	public float memoryCutoffThreshold   = AkSoundEngineController.s_MemoryCutoffThreshold;
+	public int callbackManagerBufferSize = AkSoundEngineController.s_CallbackManagerBufferSize;
 
 	public void SaveInitSettings(AkInitializer in_AkInit)
 	{
@@ -474,5 +487,6 @@ public class AkWwiseProjectData : ScriptableObject
 		AuxBusWwu = new List<AkInfoWorkUnit>();
         RtpcWwu = new List<AkInfoWorkUnit>();
         TriggerWwu = new List<AkInfoWorkUnit>();
+        AcousticTextureWwu = new List<AkInfoWorkUnit>();
     }
 }

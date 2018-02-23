@@ -1,49 +1,50 @@
 #if ! (UNITY_DASHBOARD_WIDGET || UNITY_WEBPLAYER || UNITY_WII || UNITY_WIIU || UNITY_NACL || UNITY_FLASH || UNITY_BLACKBERRY) // Disable under unsupported platforms.
 #if UNITY_EDITOR
 using System;
-using System.IO;
+using System.Collections.Generic;
+using System.Reflection;
 using System.Xml;
-using System.Xml.XPath;
 using System.Xml.Serialization;
+using System.Xml.XPath;
 using UnityEditor;
 using UnityEngine;
-using System.Reflection;
-using System.Collections.Generic;
 
 [Serializable]
 public class WwiseSettings
 {
 	public string WwiseProjectPath;
 	public string SoundbankPath;
-    public bool CreateWwiseGlobal = true;
-    public bool CreateWwiseListener = true;
+	public bool CopySoundBanksAsPreBuildStep = true;
+	public bool GenerateSoundBanksAsPreBuildStep = false;
+	public bool CreateWwiseGlobal = true;
+	public bool CreateWwiseListener = true;
 	public bool ShowMissingRigidBodyWarning = true;
-    public string WwiseInstallationPathWindows;
-    public string WwiseInstallationPathMac;
-    public bool CreatedPicker = false;
+	public string WwiseInstallationPathWindows;
+	public string WwiseInstallationPathMac;
+	public bool CreatedPicker = false;
 
 	public const string WwiseSettingsFilename = "WwiseSettings.xml";
-	
-	static WwiseSettings s_Instance = null;    
 
-    public WwiseSettings()
-    {
-    }
+	static WwiseSettings s_Instance = null;
+
+	public WwiseSettings()
+	{
+	}
 
 	// Save the WwiseSettings structure to a serialized XML file
 	public static void SaveSettings(WwiseSettings Settings)
 	{
 		try
 		{
-			XmlDocument xmlDoc = new XmlDocument();
-			XmlSerializer xmlSerializer = new XmlSerializer(Settings.GetType());
-			using (MemoryStream xmlStream = new MemoryStream())
+			var xmlDoc = new XmlDocument();
+			var xmlSerializer = new XmlSerializer(Settings.GetType());
+			using (var xmlStream = new System.IO.MemoryStream())
 			{
-				StreamWriter streamWriter = new StreamWriter( xmlStream, System.Text.Encoding.UTF8 );
+				var streamWriter = new System.IO.StreamWriter( xmlStream, System.Text.Encoding.UTF8 );
 				xmlSerializer.Serialize(streamWriter, Settings);
 				xmlStream.Position = 0;
 				xmlDoc.Load(xmlStream);
-				xmlDoc.Save(Path.Combine(Application.dataPath, WwiseSettingsFilename));
+				xmlDoc.Save(System.IO.Path.Combine(Application.dataPath, WwiseSettingsFilename));
 			}
 		}
 		catch (Exception)
@@ -61,17 +62,17 @@ public class WwiseSettings
 		WwiseSettings Settings = new WwiseSettings();
 		try
 		{
-			if (File.Exists(Path.Combine(Application.dataPath, WwiseSettingsFilename)))
+			if (System.IO.File.Exists(System.IO.Path.Combine(Application.dataPath, WwiseSettingsFilename)))
 			{
-				XmlSerializer xmlSerializer = new XmlSerializer(Settings.GetType());
-				FileStream xmlFileStream = new FileStream(Application.dataPath + "/" + WwiseSettingsFilename, FileMode.Open, FileAccess.Read);
+				var xmlSerializer = new XmlSerializer(Settings.GetType());
+				var xmlFileStream = new System.IO.FileStream(Application.dataPath + "/" + WwiseSettingsFilename, System.IO.FileMode.Open, System.IO.FileAccess.Read);
 				Settings = (WwiseSettings)xmlSerializer.Deserialize(xmlFileStream);
 				xmlFileStream.Close();
 			}
 			else
 			{
-				string projectDir = Path.GetDirectoryName(Application.dataPath);
-				string[] foundWwiseProjects = Directory.GetFiles(projectDir, "*.wproj", SearchOption.AllDirectories);
+				var projectDir = System.IO.Path.GetDirectoryName(Application.dataPath);
+				var foundWwiseProjects = System.IO.Directory.GetFiles(projectDir, "*.wproj", System.IO.SearchOption.AllDirectories);
 				
 				if (foundWwiseProjects.Length == 0)
 				{
@@ -87,7 +88,7 @@ public class WwiseSettings
 					Settings.WwiseProjectPath = AkUtilities.MakeRelativePath(Application.dataPath + "/fake_depth", foundWwiseProjects[0]);
 				}
 
-                Settings.SoundbankPath = AkInitializer.c_DefaultBasePath;
+                Settings.SoundbankPath = AkSoundEngineController.s_DefaultBasePath;
 			}
 			
 			s_Instance = Settings;
@@ -107,8 +108,13 @@ public partial class AkUtilities
     // Unity platform enum to Wwise soundbank reference platform name mapping.
     private static IDictionary<BuildTarget, string[]> platformMapping = new Dictionary<BuildTarget, string[]>()
     {
+#if UNITY_2017_3_OR_NEWER
+        { BuildTarget.StandaloneOSX, new string[] { "Mac" } },
+#else
         { BuildTarget.StandaloneOSXUniversal, new string[] { "Mac" } },
         { BuildTarget.StandaloneOSXIntel, new string[] { "Mac" } },
+        { BuildTarget.StandaloneOSXIntel64, new string[] { "Mac" } },
+#endif
         { BuildTarget.StandaloneWindows, new string[] { "Windows" } },
         // { BuildTarget.WebPlayer, null },
         // { BuildTarget.WebPlayerStreamed, null },
@@ -124,7 +130,6 @@ public partial class AkUtilities
         { BuildTarget.StandaloneLinux64, new string[] { "Linux" } },
         { BuildTarget.StandaloneLinuxUniversal, new string[] { "Linux" } },
         // { BuildTarget.WP8Player, null },
-        { BuildTarget.StandaloneOSXIntel64, new string[] { "Mac" } },
         // { BuildTarget.BlackBerry, null },
         // { BuildTarget.Tizen, null },
         { BuildTarget.PSP2, new string[] { "VitaHW", "VitaSW" } },
@@ -145,8 +150,7 @@ public partial class AkUtilities
     {
         string output = "";
 
-        System.Diagnostics.Process process = new System.Diagnostics.Process();
-
+        var process = new System.Diagnostics.Process();
         process.StartInfo.FileName = command;
         process.StartInfo.UseShellExecute = false;
         process.StartInfo.RedirectStandardOutput = true;
@@ -154,8 +158,8 @@ public partial class AkUtilities
         process.StartInfo.Arguments = arguments;
         process.Start();
 
-        // Synchronously read the standard output of the spawned process. 
-        StreamReader reader = process.StandardOutput;
+		// Synchronously read the standard output of the spawned process. 
+		var reader = process.StandardOutput;
         output = reader.ReadToEnd();
 
         // Waiting for the process to exit directly in the UI thread. Similar cases are working that way too.
@@ -178,22 +182,22 @@ public partial class AkUtilities
 
         if (!String.IsNullOrEmpty(settings.WwiseInstallationPathWindows))
         {
-            result = Path.Combine(settings.WwiseInstallationPathWindows, @"Authoring\x64\Release\bin\WwiseCLI.exe");
+            result = System.IO.Path.Combine(settings.WwiseInstallationPathWindows, @"Authoring\x64\Release\bin\WwiseCLI.exe");
 
-            if (!File.Exists(result))
+            if (!System.IO.File.Exists(result))
             {
-                result = Path.Combine(settings.WwiseInstallationPathWindows, @"Authoring\Win32\Release\bin\WwiseCLI.exe");
+                result = System.IO.Path.Combine(settings.WwiseInstallationPathWindows, @"Authoring\Win32\Release\bin\WwiseCLI.exe");
             }
         }
 
 #elif UNITY_EDITOR_OSX
         if (!String.IsNullOrEmpty(settings.WwiseInstallationPathMac))
         {
-            result = Path.Combine(settings.WwiseInstallationPathMac, "Contents/Tools/WwiseCLI.sh");
+            result = System.IO.Path.Combine(settings.WwiseInstallationPathMac, "Contents/Tools/WwiseCLI.sh");
         }
 #endif
 
-        if (result != null && File.Exists(result))
+		if (result != null && System.IO.File.Exists(result))
         {
             return result;
         }
@@ -203,7 +207,7 @@ public partial class AkUtilities
     
     // Generate all the SoundBanks for all the supported platforms in the Wwise project. This effectively calls Wwise for the project
     // that is configured in the UnityWwise integration.
-    public static void GenerateSoundbanks()
+    public static void GenerateSoundbanks(List<string> platforms = null)
     {
         WwiseSettings Settings = WwiseSettings.LoadSettings();
         string wwiseProjectFullPath = GetFullPath(Application.dataPath, Settings.WwiseProjectPath);
@@ -231,10 +235,17 @@ public partial class AkUtilities
         command = "/bin/sh";
         arguments = "\"" + wwiseCli + "\"";
 #endif
-        
-        arguments += " \"" + wwiseProjectFullPath + "\" -GenerateSoundBanks";
-        
-        string output = ExecuteCommandLine(command, arguments);
+
+        arguments += " \"" + wwiseProjectFullPath + "\"";
+
+		if (platforms != null)
+			foreach (var platform in platforms)
+				if (!string.IsNullOrEmpty(platform))
+					arguments += " -Platform " + platform;
+
+		arguments += " -GenerateSoundBanks";
+
+		string output = ExecuteCommandLine(command, arguments);
 
         bool success = output.Contains("Process completed successfully.");
         bool warning = output.Contains("Process completed with warning");
@@ -260,9 +271,9 @@ public partial class AkUtilities
     // Reads the user settings (not the project settings) to check if there is an override currently defined for the soundbank generation folders.
     public static bool IsSoundbankOverrideEnabled(string wwiseProjectPath)
     {
-        string userConfigFile = Path.Combine(Path.GetDirectoryName(wwiseProjectPath), Path.GetFileNameWithoutExtension(wwiseProjectPath) + "." + Environment.UserName + ".wsettings");
+        string userConfigFile = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(wwiseProjectPath), System.IO.Path.GetFileNameWithoutExtension(wwiseProjectPath) + "." + Environment.UserName + ".wsettings");
 
-        if (!File.Exists(userConfigFile))
+        if (!System.IO.File.Exists(userConfigFile))
         {
             return false;
         }
@@ -321,7 +332,7 @@ public partial class AkUtilities
                         if (s_ProjectBankPaths.TryGetValue(platform, out sbPath))
                         {
 #if UNITY_EDITOR_OSX
-                            sbPath = sbPath.Replace('\\', Path.DirectorySeparatorChar);
+                            sbPath = sbPath.Replace('\\', System.IO.Path.DirectorySeparatorChar);
 #endif
                             pathsList.Add(sbPath);
                             platformNamesList.Add(platform);
@@ -370,10 +381,10 @@ public partial class AkUtilities
             if (WwiseProjectPath.Length == 0)
                 return;
 
-            if (!File.Exists(WwiseProjectPath))
+            if (!System.IO.File.Exists(WwiseProjectPath))
                 return;
 
-            DateTime t = File.GetLastWriteTime(WwiseProjectPath);
+            DateTime t = System.IO.File.GetLastWriteTime(WwiseProjectPath);
             if (t <= s_LastBankPathUpdate)
                 return;
 
@@ -580,29 +591,29 @@ public partial class AkUtilities
 			return "";
 		}
 		
-		char wrongSeparatorChar = (Path.DirectorySeparatorChar == '/') ? '\\' : '/';
+		char wrongSeparatorChar = (System.IO.Path.DirectorySeparatorChar == '/') ? '\\' : '/';
 		
 		if( string.IsNullOrEmpty(RelativePath))
 		{
-			return BasePath.Replace(wrongSeparatorChar, Path.DirectorySeparatorChar);
+			return BasePath.Replace(wrongSeparatorChar, System.IO.Path.DirectorySeparatorChar);
 		}
 		
-		if (Path.GetPathRoot(RelativePath) != "")
+		if (System.IO.Path.GetPathRoot(RelativePath) != "")
 		{
-			return RelativePath.Replace(wrongSeparatorChar, Path.DirectorySeparatorChar);
+			return RelativePath.Replace(wrongSeparatorChar, System.IO.Path.DirectorySeparatorChar);
 		}
 		
-		tmpString = Path.Combine(BasePath, RelativePath);
-		tmpString = Path.GetFullPath(new Uri(tmpString).LocalPath);
+		tmpString = System.IO.Path.Combine(BasePath, RelativePath);
+		tmpString = System.IO.Path.GetFullPath(new Uri(tmpString).LocalPath);
 		
-		return tmpString.Replace(wrongSeparatorChar, Path.DirectorySeparatorChar);
+		return tmpString.Replace(wrongSeparatorChar, System.IO.Path.DirectorySeparatorChar);
 	}
 	
 	
 	public static bool DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs)
 	{
 		// Get the subdirectories for the specified directory.
-		DirectoryInfo dir = new DirectoryInfo(sourceDirName);
+		var dir = new System.IO.DirectoryInfo(sourceDirName);
 
 		if (!dir.Exists)
 		{
@@ -610,29 +621,26 @@ public partial class AkUtilities
 			return false;
 		}
 
-		DirectoryInfo[] dirs = dir.GetDirectories();
+		var dirs = dir.GetDirectories();
 
-		
 		// If the destination directory doesn't exist, create it. 
-		if (!Directory.Exists(destDirName))
-		{
-			Directory.CreateDirectory(destDirName);
-		}
+		if (!System.IO.Directory.Exists(destDirName))
+			System.IO.Directory.CreateDirectory(destDirName);
 		
 		// Get the files in the directory and copy them to the new location.
-		FileInfo[] files = dir.GetFiles();
-		foreach (FileInfo file in files)
+		var files = dir.GetFiles();
+		foreach (var file in files)
 		{
-			string temppath = Path.Combine(destDirName, file.Name);
+			string temppath = System.IO.Path.Combine(destDirName, file.Name);
 			file.CopyTo(temppath, true);
 		}
 		
 		// If copying subdirectories, copy them and their contents to new location. 
 		if (copySubDirs)
 		{
-			foreach (DirectoryInfo subdir in dirs)
+			foreach (var subdir in dirs)
 			{
-				string temppath = Path.Combine(destDirName, subdir.Name);
+				string temppath = System.IO.Path.Combine(destDirName, subdir.Name);
 				DirectoryCopy(subdir.FullName, temppath, copySubDirs);
 			}
 		}
@@ -683,29 +691,34 @@ public partial class AkUtilities
 	/// 
 	///The inspector must be in repaint mode in order to get the correct position 
 	///Example => if(Event.current.type == EventType.Repaint) Rect pos = AkUtilities.GetLastRectAbsolute();
-	public static Rect GetLastRectAbsolute()
+	public static Rect GetLastRectAbsolute(bool applyScroll = true)
 	{ 
-		Type inspectorType = Assembly.GetAssembly(typeof(Editor)).GetType("UnityEditor.InspectorWindow");
+		Type inspectorType = Assembly.GetAssembly(typeof(UnityEditor.Editor)).GetType("UnityEditor.InspectorWindow");
 		
 		FieldInfo 		currentInspectorFieldInfo	= inspectorType.GetField("s_CurrentInspectorWindow", BindingFlags.Public | BindingFlags.Static);
-		FieldInfo 		scrollPosInfo				= inspectorType.GetField("m_ScrollPosition", BindingFlags.Public | BindingFlags.Instance);
 		PropertyInfo	positionPropInfo 			= inspectorType.GetProperty("position", BindingFlags.Public | BindingFlags.Instance);
+		Rect	        InspectorPosition	        = (Rect)positionPropInfo.GetValue(currentInspectorFieldInfo.GetValue(null), null);
 		
-		Rect	InspectorPosition	= (Rect)positionPropInfo.GetValue(currentInspectorFieldInfo.GetValue(null), null);
-		Vector2	scrollPos 			= (Vector2)scrollPosInfo.GetValue(currentInspectorFieldInfo.GetValue(null));
-		
-		Rect relativePos = GUILayoutUtility.GetLastRect();
-		
-		Rect absolutePos = new Rect	(	InspectorPosition.x + relativePos.x - scrollPos.x, 
-		                             	InspectorPosition.y + relativePos.y - scrollPos.y, 
-		                             	relativePos.width, 
-		                             	relativePos.height
-		                             );
+        Rect absolutePos = new Rect(InspectorPosition.x, InspectorPosition.y, InspectorPosition.width, 0);
+
+        if (applyScroll)
+        {
+            FieldInfo scrollPosInfo = inspectorType.GetField("m_ScrollPosition", BindingFlags.Public | BindingFlags.Instance);
+            Vector2 scrollPos = (Vector2)scrollPosInfo.GetValue(currentInspectorFieldInfo.GetValue(null));
+
+            Rect relativePos = GUILayoutUtility.GetLastRect();
+
+            absolutePos = new Rect(InspectorPosition.x + relativePos.x - scrollPos.x,
+                                   InspectorPosition.y + relativePos.y - scrollPos.y,
+                                   relativePos.width,
+                                   relativePos.height
+                                  );
+        }
 
 		return absolutePos;  
 	}
 
-	public static void RepaintInspector ()
+    public static void RepaintInspector ()
 	{
 		Type 		inspectorType		= Assembly.GetAssembly(typeof(Editor)).GetType("UnityEditor.InspectorWindow");
 		MethodInfo 	getAllInspectorInfo = inspectorType.GetMethod ("GetAllInspectorWindows", BindingFlags.Public | BindingFlags.Static);
@@ -770,12 +783,12 @@ public partial class AkUtilities
 }
 #endif // UNITY_EDITOR
 
-/// <summary>
-/// This is based on FNVHash as used by the DataManager
-/// to assign short IDs to objects. Be sure to keep them both in sync
-/// when making changes!
-/// </summary>
-public partial class AkUtilities
+        /// <summary>
+        /// This is based on FNVHash as used by the DataManager
+        /// to assign short IDs to objects. Be sure to keep them both in sync
+        /// when making changes!
+        /// </summary>
+    public partial class AkUtilities
 {
 	public class ShortIDGenerator
 	{

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{CCB9A063-7B9E-4F52-8BFF-4C57C0EF60C4}" SchemaVersion="80">
+<WwiseDocument Type="WorkUnit" ID="{CCB9A063-7B9E-4F52-8BFF-4C57C0EF60C4}" SchemaVersion="85">
 	<SoundBanks>
 		<WorkUnit Name="Default Work Unit" ID="{CCB9A063-7B9E-4F52-8BFF-4C57C0EF60C4}" PersistMode="Standalone">
 			<ChildrenList>
@@ -48,6 +48,13 @@
 				<SoundBank Name="EndLevel" ID="{78AC61F6-7AF0-4D2B-96DC-A646D171F5EE}">
 					<ObjectInclusionList>
 						<ObjectRef Name="EndLevel" ID="{CBD4B424-7E7A-4794-A2CB-DBAC3EDA4DE5}" WorkUnitID="{01CDA8BC-683A-4288-9AA3-966B9C775560}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+				<SoundBank Name="HatmanJump" ID="{39C1F5FE-1B54-470D-B672-EBC60855F58C}">
+					<ObjectInclusionList>
+						<ObjectRef Name="HatmanJump" ID="{50E30616-2B31-421C-A907-04E174DA0F54}" WorkUnitID="{01CDA8BC-683A-4288-9AA3-966B9C775560}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

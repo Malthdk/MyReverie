@@ -13,19 +13,7 @@ using System.Collections.Generic;
 public class AkGameObjListenerList : AkAudioListener.BaseListenerList
 {
 	[SerializeField]
-	private List<AkAudioListener> initialListenerList = new List<AkAudioListener>();
-
-	public void Initialize()
-	{
-		int Count = initialListenerList.Count;
-		for (int ii = 0; ii < Count; ++ii)
-		{
-			if (Add(initialListenerList[ii]))
-			{
-				changed = true;
-			}
-		}
-	}
+	public List<AkAudioListener> initialListenerList = new List<AkAudioListener>();
 
 	public void Refresh(GameObject gameObject)
 	{

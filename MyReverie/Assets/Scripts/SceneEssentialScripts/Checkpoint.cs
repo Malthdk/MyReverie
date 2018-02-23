@@ -31,10 +31,10 @@ public class Checkpoint : MonoBehaviour {
 		{
 			player = FindObjectOfType<Player>();
 		}
-		if (LevelManager.instance.currentCheckpoint != this.gameObject)
+/*		if (LevelManager.instance.currentCheckpoint != this.gameObject)
 		{
 			//graphics.SetActive(false);
-		}
+		}*/
 	}
 		
 	void OnTriggerEnter2D(Collider2D other)

@@ -6,7 +6,6 @@
 //////////////////////////////////////////////////////////////////////
 
 using UnityEngine;
-using System;
 using System.Collections.Generic;
 
 
@@ -20,12 +19,6 @@ public class AkAudioListener : MonoBehaviour
 {
 	public bool isDefaultListener = true;
 	private ulong akGameObjectID = AkSoundEngine.AK_INVALID_GAME_OBJECT;
-
-	private void Awake()
-	{
-		akGameObjectID = AkSoundEngine.GetAkGameObjectID(gameObject);
-		SetIsDefaultListener_NoCheck(isDefaultListener);
-	}
 
 	private void SetIsDefaultListener_NoCheck(bool isDefault)
 	{
@@ -46,17 +39,13 @@ public class AkAudioListener : MonoBehaviour
 
 	private void OnEnable()
 	{
+		akGameObjectID = AkSoundEngine.GetAkGameObjectID(gameObject);
 		SetIsDefaultListener_NoCheck(isDefaultListener);
 	}
 
 	private void OnDisable()
 	{
 		SetIsDefaultListener_NoCheck(false);
-	}
-
-	private void OnDestroy()
-	{
-		SetIsDefaultListener(false);
 		akGameObjectID = AkSoundEngine.AK_INVALID_GAME_OBJECT;
 	}
 
@@ -69,6 +58,12 @@ public class AkAudioListener : MonoBehaviour
 	{
 		// @todo: Use HashSet<ulong> and CopyTo() with a private ulong[]
 		private List<ulong> listenerIdList = new List<ulong>();
+		private List<AkAudioListener> listenerList = new List<AkAudioListener>();
+
+		public List<AkAudioListener> ListenerList
+		{
+			get { return listenerList; }
+		}
 
 		protected bool changed = false;
 
@@ -87,6 +82,7 @@ public class AkAudioListener : MonoBehaviour
 				return false;
 
 			listenerIdList.Add(gameObjectId);
+			listenerList.Add(listener);
 			changed = true;
 			return true;
 		}
@@ -106,6 +102,7 @@ public class AkAudioListener : MonoBehaviour
 				return false;
 
 			listenerIdList.Remove(gameObjectId);
+			listenerList.Remove(listener);
 			changed = true;
 			return true;
 		}
